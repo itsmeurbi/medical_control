@@ -1,0 +1,73 @@
+<%= form_with model: @patient, action: :post do |f| %>
+  <%= f.label :name, 'Nombre:' %>
+  <%= f.text_field :name , placeholder: 'John Doe', required: true %>
+
+  <%= f.label :birth_date, 'F. de Nacimiento:' %>
+  <%= f.date_field :birth_date %>
+
+  <%= f.label :age, 'Edad:' %>
+  <%= f.number_field :age, max: 100, min: 1, required: true %>
+
+  <%= f.label :city, 'Ciudad:' %>
+  <%= f.text_field :city, placeholder: 'Colima' %>
+
+  <%= f.label :medical_record, 'Expediente:' %>
+  <%= f.text_field :medical_record %>
+
+  <%= f.label :registered_at, 'F. de Ingreso:' %>
+  <%= f.date_field :registered_at, required: true %>
+
+  <%= f.label :occupations, 'Ocupaciones:' %>
+  <%= f.text_field :occupations, placeholder: 'Deporte, Danza, Lectura...' %>
+
+  <%= f.label :address, 'Domicilio:' %>
+  <%= f.text_field :address, placeholder: 'Av. Ejemplo #111' %>
+
+  <%= f.label :gender, 'Sexo:' %>
+  <%= f.select :gender, options_for_select(gender_select_options)%>
+
+  <%= f.label :marital_status, 'Estado Civil:' %>
+  <%= f.select :marital_status, options_for_select(marital_status_select_options),
+                                {include_blank: 'N/A'} %>
+
+  <%= f.label :reference, 'Referencia:' %>
+  <%= f.text_field :reference, placeholder: 'Nombre de quien referenció' %>
+
+  <%= f.label :phone_number, 'Teléfono:' %>
+  <%= f.text_field :phone_number %>
+  <hr>
+
+  <%= f.label :primary_dx, 'DX. Primario:' %>
+  <%= f.text_area :primary_dx %>
+
+  <%= f.label :initial_dx, 'DX. A. Inicial:' %>
+  <%= f.text_area :initial_dx %>
+
+  <%= f.label :final_dx, 'DX. A. Final:' %>
+  <%= f.text_area :final_dx %>
+
+  <%= f.label :medical_background, 'Antecedentes:' %>
+  <%= f.text_area :medical_background %>
+
+  <%= f.label :surgical_background, 'Antecedentes Quirúrgicos:' %>
+  <%= f.text_area :surgical_background %>
+
+  <%= f.label :interventionism_tx, 'Tx. Intervencionismo:' %>
+  <%= f.text_area :interventionism_tx %>
+  <hr>
+
+  <%= render 'pain_form', f: f %>
+  <hr>
+
+  <%= render 'physical_exploration_form', f: f %>
+  <hr>
+
+  <%= render 'lab_form', f: f %>
+  <hr>
+
+  <%= render 'treatment_form', f: f %>
+  <hr>
+
+  <%= f.submit submit %>
+  <%= link_to 'Regresar', :back %>
+<% end %>

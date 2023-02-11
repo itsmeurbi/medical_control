@@ -1,0 +1,43 @@
+<div>
+  <%= f.label :blood_type, 'Gpo:' %>
+  <%= f.select :blood_type, options_for_select(blood_type_select_options)%>
+
+  <%= f.label :rh_factor, 'Rh:' %>
+  <%= f.select :rh_factor, options_for_select(rh_factor_select_options)%>
+
+  <%= f.label :weight, 'Peso(Kg):' %>
+  <%= f.number_field :weight, placeholder: '60 Kg' %>
+
+  <%= f.label :height, 'Talla(cm):' %>
+  <%= f.number_field :height, placeholder: '160cm' %>
+
+  <%= f.label :blood_pressure, 'TA:' %>
+  <%= f.number_field :blood_pressure, placeholder: '120 mmHg' %>
+
+  <%= f.label :heart_rate, 'FC:' %>
+  <%= f.number_field :heart_rate, placeholder: 'lat/min' %>
+
+  <%= f.label :breath_rate, 'FR:' %>
+  <%= f.number_field :breath_rate, placeholder: 'resp/min' %>
+
+  <%= f.label :general_inspection, 'Insepcción general:' %>
+  <%= f.text_field :general_inspection %>
+
+  <%= f.label :head, 'Cabeza:' %>
+  <%= f.text_field :head %>
+
+  <%= f.label :abdomen, 'Abdomen:' %>
+  <%= f.text_field :abdomen %>
+
+  <%= f.label :neck, 'Cuello:' %>
+  <%= f.text_field :neck %>
+
+  <%= f.label :extremities, 'Extremidades:' %>
+  <%= f.text_field :extremities %>
+
+  <%= f.label :spine, 'Columna:' %>
+  <%= f.text_field :spine %>
+
+  <%= f.label :chest, 'Tórax:' %>
+  <%= f.text_field :chest %>
+</div>

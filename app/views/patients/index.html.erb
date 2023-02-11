@@ -1,0 +1,34 @@
+<h1>Pacientes</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <td>Nombre</td>
+        <td>Edad</td>
+        <td>Fecha Ingreso</td>
+        <td>Genero</td>
+        <td>Antecedentes</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @patients.any? %>
+        <% @patients.each do |p| %>
+          <tr>
+            <td> <%= p.name %> </td>
+            <td> <%= p.age %> </td>
+            <td> <%= p.registered_at %> </td>
+            <td> <%= p.gender.titleize %> </td>
+            <td> <%= p.medical_background %> </td>
+            <td> <%= link_to 'Mostrar', edit_patient_path(p), method: :patch %></td>
+            <td> <%= button_to 'Eliminar', patient_path(p), method: :delete, data:
+                                                              { turbo_confirm: '¿Estas seguro?' }
+                                                              %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <td colspan="2"> <p>No hay registros</p> </td>
+      <% end %>
+    </tbody>
+  </table>
+<%= link_to 'Agregar paciente', new_patient_path %>

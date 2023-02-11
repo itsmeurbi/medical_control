@@ -1,0 +1,37 @@
+<div>
+  <%= f.label :pain_type, 'Tipo:' %>
+  <%= f.text_field :pain_type %>
+
+  <%= f.label :pain_localization, 'Localización:' %>
+  <%= f.text_field :pain_localization %>
+
+  <%= f.label :pain_evolution, 'Evolución:' %>
+  <%= f.text_field :pain_evolution %>
+
+  <%= f.label :pain_duration, 'Duración:' %>
+  <%= f.text_field :pain_duration %>
+
+  <%= f.label :pain_last_time, 'Última vez:' %>
+  <%= f.text_field :pain_last_time %>
+
+  <%= f.label :pain_initial_state, 'Inicio:' %>
+  <%= f.text_field :pain_initial_state %>
+
+  <%= f.label :pain_current_state, 'Estado actual:' %>
+  <%= f.text_field :pain_current_state %>
+
+  <%= f.label :alergies, 'Alergias:' %>
+  <%= f.text_field :alergies %>
+
+  <%= f.label :irradiations, 'Irradiaciones:' %>
+  <%= f.text_field :irradiations %>
+
+  <%= f.label :evaluation, 'EVA:' %>
+  <%= f.select :evaluation, options_for_select( (1..10).to_a ) %>
+
+  <%= f.label :evara, 'EVARA:' %>
+  <%= f.select :evara, options_for_select(evara_select_options)%>
+
+  <%= f.label :previous_tx, 'TX. Previo:' %>
+  <%= f.text_field :previous_tx %>
+</div>
