@@ -22,7 +22,7 @@ class PatientsTest < ApplicationSystemTestCase
   end
 
   test 'should visit edit patient page, change fields and update it' do
-    click_link 'Mostrar'
+    click_link 'Editar'
     fill_in 'Nombre', with: 'Diego'
     fill_in 'Edad', with: '25'
     fill_in 'F. de Ingreso', with: Time.current
@@ -33,7 +33,7 @@ class PatientsTest < ApplicationSystemTestCase
   end
 
   test 'should click on Regresar link, and check if its in main page' do
-    click_link 'Mostrar'
+    click_link 'Editar'
     click_link 'Regresar'
 
     assert_content patients(:first_patient).name

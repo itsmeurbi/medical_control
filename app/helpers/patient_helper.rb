@@ -20,4 +20,10 @@ module PatientHelper
   def rh_factor_select_options
     Patient.rh_factors.map { |k, _v| [k.titleize, k] }
   end
+
+  def show_svg(path)
+    File.open("app/assets/images/#{path}", 'rb') do |file|
+      raw file.read
+    end
+  end
 end

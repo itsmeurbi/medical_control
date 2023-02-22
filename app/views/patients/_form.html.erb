@@ -1,73 +1,178 @@
 <%= form_with model: @patient, action: :post do |f| %>
-  <%= f.label :name, 'Nombre:' %>
-  <%= f.text_field :name , placeholder: 'John Doe', required: true %>
+  <div class="grid grid-cols-3 block shadow-md rounded shadow-black bg-white p-4 gap-x-6">
+    <div class = "grid justify-items-center">
+      <div class="w-full">
+        <%= f.label :name, 'Nombre:' %><br>
+        <%= f.text_field :name , placeholder: 'John Doe', required: true, class: 'w-full' %>
+      </div>
 
-  <%= f.label :birth_date, 'F. de Nacimiento:' %>
-  <%= f.date_field :birth_date %>
+      <div class = "grid grid-cols-2 w-full">
+        <div>
+          <%= f.label :registered_at, 'F. de Ingreso:' %><br>
+          <%= f.date_field :registered_at, required: true, class: 'w-11/12' %>
+        </div>
 
-  <%= f.label :age, 'Edad:' %>
-  <%= f.number_field :age, max: 100, min: 1, required: true %>
+        <div>
+          <%= f.label :gender, 'Sexo:' %><br>
+          <%= f.select :gender, options_for_select(gender_select_options), {}, {class: 'w-full'} %>
+        </div>
+      </div>
 
-  <%= f.label :city, 'Ciudad:' %>
-  <%= f.text_field :city, placeholder: 'Colima' %>
+      <div class = "grid grid-cols-2 w-full">
+        <div>
+          <%= f.label :medical_record, 'Expediente:' %><br>
+          <%= f.text_field :medical_record, class: 'w-11/12'  %>
+        </div>
 
-  <%= f.label :medical_record, 'Expediente:' %>
-  <%= f.text_field :medical_record %>
+        <div>
+          <%= f.label :marital_status, 'Estado Civil:' %><br>
+          <%= f.select :marital_status, options_for_select(marital_status_select_options),
+                                      {include_blank: 'N/A'}, {class: 'w-full'} %>
+        </div>
+      </div>
+    </div>
 
-  <%= f.label :registered_at, 'F. de Ingreso:' %>
-  <%= f.date_field :registered_at, required: true %>
+    <div class="grid justify-items-center">
+      <div class="grid grid-cols-2 gap-2 w-full">
+        <div>
+          <%= f.label :birth_date, 'F. de Nacimiento:' %><br>
+          <%= f.date_field :birth_date, class: 'w-11/12' %>
+        </div>
 
-  <%= f.label :occupations, 'Ocupaciones:' %>
-  <%= f.text_field :occupations, placeholder: 'Deporte, Danza, Lectura...' %>
+        <div>
+          <%= f.label :age, 'Edad:' %><br>
+          <%= f.number_field :age, max: 100,
+                                   min: 1,
+                                   required: true,
+                                   placeholder: '24 años',
+                                   class: 'w-full' %>
+        </div>
+      </div>
 
-  <%= f.label :address, 'Domicilio:' %>
-  <%= f.text_field :address, placeholder: 'Av. Ejemplo #111' %>
+      <div class = "w-full">
+        <%= f.label :reference, 'Referencia:' %><br>
+        <%= f.text_field :reference, placeholder: 'Nombre de quien referenció', class: 'w-full' %>
+      </div>
 
-  <%= f.label :gender, 'Sexo:' %>
-  <%= f.select :gender, options_for_select(gender_select_options)%>
+      <div class = "w-full">
+        <%= f.label :occupations, 'Ocupaciones:' %><br>
+        <%= f.text_field :occupations, placeholder: 'Deporte, Danza, Lectura...',
+                                       class: 'w-full' %>
+      </div>
+    </div>
 
-  <%= f.label :marital_status, 'Estado Civil:' %>
-  <%= f.select :marital_status, options_for_select(marital_status_select_options),
-                                {include_blank: 'N/A'} %>
+    <div class="grid justify-items-center">
+      <div class = "w-full">
+        <%= f.label :city, 'Ciudad:' %><br>
+        <%= f.text_field :city, placeholder: 'Colima', class: 'w-full' %>
+      </div>
 
-  <%= f.label :reference, 'Referencia:' %>
-  <%= f.text_field :reference, placeholder: 'Nombre de quien referenció' %>
+      <div class = "w-full">
+        <%= f.label :address, 'Domicilio:' %><br>
+        <%= f.text_field :address, placeholder: 'Av. Ejemplo #111', class: 'w-full' %>
+      </div>
 
-  <%= f.label :phone_number, 'Teléfono:' %>
-  <%= f.text_field :phone_number %>
-  <hr>
+      <div class = "w-full">
+        <%= f.label :phone_number, 'Teléfono:' %><br>
+        <%= f.text_field :phone_number, class: 'w-full' %>
+      </div>
+    </div>
 
-  <%= f.label :primary_dx, 'DX. Primario:' %>
-  <%= f.text_area :primary_dx %>
+    <div class="grid justify-items-center">
+      <div class = "w-full">
+        <%= f.label :primary_dx, 'DX. Primario:' %><br>
+        <%= f.text_area :primary_dx, class: 'w-full', rows: 1 %>
+      </div>
 
-  <%= f.label :initial_dx, 'DX. A. Inicial:' %>
-  <%= f.text_area :initial_dx %>
+      <div class = "w-full">
+        <%= f.label :medical_background, 'Antecedentes:' %><br>
+        <%= f.text_area :medical_background, class: 'w-full', rows: 1 %>
+      </div>
+    </div>
 
-  <%= f.label :final_dx, 'DX. A. Final:' %>
-  <%= f.text_area :final_dx %>
+    <div class="grid justify-items-center">
+      <div class = "w-full">
+        <%= f.label :initial_dx, 'DX. A. Inicial:' %><br>
+        <%= f.text_area :initial_dx, class: 'w-full', rows: 1 %>
+      </div>
 
-  <%= f.label :medical_background, 'Antecedentes:' %>
-  <%= f.text_area :medical_background %>
+      <div class = "w-full">
+        <%= f.label :surgical_background, 'Antecedentes Quirúrgicos:' %><br>
+        <%= f.text_area :surgical_background, class: 'w-full', rows: 1 %>
+      </div>
+    </div>
 
-  <%= f.label :surgical_background, 'Antecedentes Quirúrgicos:' %>
-  <%= f.text_area :surgical_background %>
+    <div class="grid justify-items-center">
+      <div class = "w-full">
+        <%= f.label :final_dx, 'DX. A. Final:' %><br>
+        <%= f.text_area :final_dx, class: 'w-full', rows: 1 %>
+      </div>
 
-  <%= f.label :interventionism_tx, 'Tx. Intervencionismo:' %>
-  <%= f.text_area :interventionism_tx %>
-  <hr>
+      <div class = "w-full">
+        <%= f.label :interventionism_tx, 'Tx. Intervencionismo:' %><br>
+        <%= f.text_area :interventionism_tx, class: 'w-full', rows: 1 %>
+      </div>
+    </div>
+  </div>
 
-  <%= render 'pain_form', f: f %>
-  <hr>
 
-  <%= render 'physical_exploration_form', f: f %>
-  <hr>
+  <div data-component="tab-container" class="bg-white mt-0.5 shadow-lg shadow-black">
+    <div class="text-sm
+                font-medium
+                text-center
+                text-gray-500
+                border-b
+                border-gray-200
+                dark:text-gray-400
+                dark:border-gray-700">
+      <ul class="flex flex-wrap -mb-px">
+        <li class="mr-2">
+          <a id = "display-pain-form"
+             data-target = "pain-form"
+             data-component-type = "tab"
+             class = "inline-block p-4
+                      text-blue-600
+                      border-b-2
+                      border-blue-600
+                      rounded-t-lg
+                      active hover:text-blue-500
+                      hover:border-blue-500">Caracteristicas del dolor</a>
+        </li>
+        <li class="mr-2">
+          <a data-target ="physical-exploration-form"
+             data-component-type = "tab"
+             id="display-physic-form"
+             class="inline-block p-4 text-gray-600
+                    border-b-2 border-gray-600
+                    rounded-t-lg active hover:text-blue-500
+                    hover:border-blue-500" aria-current="page">Exploración física</a>
+        </li>
+        <li class="mr-2">
+          <a data-target="lab-form"
+             data-component-type = "tab"
+             id="display-lab-form"
+             class="inline-block p-4 text-gray-600 border-b-2 border-gray-600 rounded-t-lg
+                      active hover:text-blue-500 hover:border-blue-500">Laboratorio/Gabinete</a>
+        </li>
+        <li class="mr-2">
+          <a data-target="treatment-form"
+             id="display-treatment-form"
+             data-component-type = "tab"
+             class="inline-block p-4 text-gray-600 border-b-2 border-gray-600 rounded-t-lg
+                      active hover:text-blue-500 hover:border-blue-500">Tratamientos</a>
+        </li>
+      </ul>
+    </div>
+    <%= render 'pain_form', f: f %>
+    <%= render 'physical_exploration_form', f: f %>
+    <%= render 'lab_form', f: f %>
+    <%= render 'treatment_form', f: f %>
+  </div>
 
-  <%= render 'lab_form', f: f %>
-  <hr>
-
-  <%= render 'treatment_form', f: f %>
-  <hr>
-
-  <%= f.submit submit %>
-  <%= link_to 'Regresar', :back %>
+  <div class="mt-4">
+    <%= f.submit submit, class: 'bg-violet-800 hover:bg-violet-900 text-white font-bold
+                                 py-2 px-4 rounded' %>
+    <%= link_to 'Regresar', :back, class: 'bg-white hover:bg-gray-200 text-black font-bold
+                                           py-2 px-4 rounded' %>
+  </div>
 <% end %>

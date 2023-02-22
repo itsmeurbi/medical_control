@@ -1,12 +1,24 @@
-<div>
-  <%= f.label :tx_date, 'F. del tratamiento:' %>
-  <%= f.date_field :tx_date %>
+<div id="treatment-form" data-component-type="form" class="grid grid-cols-3
+                                                           block shadow-md
+                                                           shadow-black
+                                                           rounded
+                                                           bg-white
+                                                           p-4 gap-6
+                                                           hidden">
+  <div class = "w-full">
+    <%= f.label :tx_date, 'F. del tratamiento:' %><br>
+    <%= f.date_field :tx_date, class: 'w-full' %>
+  </div>
 
-  <%= f.label :tx_procedure, 'Procedimiento:' %>
-  <%= f.text_area :tx_procedure %>
+  <div class = "w-full">
+    <%= f.label :tx_procedure, 'Procedimiento:' %><br>
+    <%= f.text_area :tx_procedure, class: 'w-full' %>
+  </div>
 
-  <%= f.label :medicines, 'Medicamento:' %>
-  <%= f.text_area :medicines %>
+  <div class = "w-full">
+    <%= f.label :medicines, 'Medicamento:' %><br>
+    <%= f.text_area :medicines, class: 'w-full' %>
+  </div>
 </div>
 
 

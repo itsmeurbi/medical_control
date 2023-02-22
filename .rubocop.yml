@@ -66,3 +66,7 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Exclude:
     - 'db/migrate/**/*'
+
+Rails/OutputSafety:
+  Exclude:
+    - 'app/helpers/**/*'

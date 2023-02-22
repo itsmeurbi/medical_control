@@ -1,2 +1,7 @@
-<h1>Editar Paciente: <%= @patient.name.titleize %>  </h1>
-<%= render 'form', submit: 'Actualizar paciente' %>
+<div class="shadow-md shadow-black rounded px-2 pb-2 mb-2 mx-4 bg-violet-200">
+  <h1 class= "text-3xl mb-4
+              text-black flex
+              text-violet-800
+              justify-center">Paciente <%= @patient.name.titleize  %> </h1>
+  <%= render 'form', submit: 'Actualizar paciente' %>
+</div>

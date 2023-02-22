@@ -1,13 +1,24 @@
-<div>
-  <%= f.label :laboratory, 'Laboratorio:' %>
-  <%= f.text_field :laboratory %>
-
-  <%= f.label :cabinet, 'Gabinete:' %>
-  <%= f.text_field :cabinet %>
-
-  <%= f.label :consultations, 'Interconsultas:' %>
-  <%= f.text_field :consultations %>
-
-  <%= f.label :requested_studies, 'Estudios solicitados:' %>
-  <%= f.text_field :requested_studies %>
+<div id="lab-form" data-component-type="form" class="grid grid-cols-2
+                                                     grid-rows-2 block
+                                                     shadow-md
+                                                     rounded
+                                                     shadow-black
+                                                     bg-white p-4
+                                                     gap-6 hidden">
+  <div>
+    <%= f.label :laboratory, 'Laboratorio:' %><br>
+    <%= f.text_field :laboratory, class: 'w-10/12' %>
+  </div>
+  <div>
+    <%= f.label :cabinet, 'Gabinete:' %><br>
+    <%= f.text_field :cabinet, class: 'w-10/12' %>
+  </div>
+  <div>
+    <%= f.label :consultations, 'Interconsultas:' %><br>
+    <%= f.text_field :consultations, class: 'w-10/12' %>
+  </div>
+  <div>
+    <%= f.label :requested_studies, 'Estudios solicitados:' %><br>
+    <%= f.text_field :requested_studies, class: 'w-10/12' %>
+  </div>
 </div>

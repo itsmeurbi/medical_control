@@ -1,43 +1,84 @@
-<div>
-  <%= f.label :blood_type, 'Gpo:' %>
-  <%= f.select :blood_type, options_for_select(blood_type_select_options)%>
+<div id="physical-exploration-form" data-component-type="form" class="grid grid-cols-4
+                                                                      grid-rows-3 bg-white
+                                                                      block shadow-md
+                                                                      rounded
+                                                                      shadow-black p-4
+                                                                      gap-x-6
+                                                                      hidden">
+    <div class="grid grid-cols-2 content-between w-full">
+      <div class = "w-full">
+        <%= f.label :blood_type, 'Gpo:' %><br>
+        <%= f.select :blood_type, options_for_select(blood_type_select_options),
+                                  {},
+                                  { class: 'w-11/12' } %>
+      </div>
+      <div>
+        <%= f.label :rh_factor, 'Rh:' %><br>
+        <%= f.select :rh_factor, options_for_select(rh_factor_select_options),
+                                 {},
+                                 { class: 'w-full'} %>
+      </div>
+    </div>
 
-  <%= f.label :rh_factor, 'Rh:' %>
-  <%= f.select :rh_factor, options_for_select(rh_factor_select_options)%>
+    <div class="grid grid-cols-2 content-between w-full">
+      <div class = "w-full">
+        <%= f.label :weight, 'Peso(Kg):' %><br>
+        <%= f.number_field :weight, placeholder: '60 Kg', class: 'w-11/12' %>
+      </div>
 
-  <%= f.label :weight, 'Peso(Kg):' %>
-  <%= f.number_field :weight, placeholder: '60 Kg' %>
+      <div class = "w-full">
+        <%= f.label :height, 'Talla(cm):' %><br>
+        <%= f.number_field :height, placeholder: '160cm', class: 'w-full' %>
+      </div>
+    </div>
 
-  <%= f.label :height, 'Talla(cm):' %>
-  <%= f.number_field :height, placeholder: '160cm' %>
+    <div class = "w-full">
+      <%= f.label :neck, 'Cuello:' %><br>
+      <%= f.text_field :neck, class: 'w-full' %>
+    </div>
 
-  <%= f.label :blood_pressure, 'TA:' %>
-  <%= f.number_field :blood_pressure, placeholder: '120 mmHg' %>
+    <div class = "w-full">
+      <%= f.label :chest, 'Tórax:' %><br>
+      <%= f.text_field :chest, class: 'w-full' %>
+    </div>
 
-  <%= f.label :heart_rate, 'FC:' %>
-  <%= f.number_field :heart_rate, placeholder: 'lat/min' %>
+    <div class = "w-full">
+      <%= f.label :blood_pressure, 'TA:' %><br>
+      <%= f.number_field :blood_pressure, placeholder: '120 mmHg', class: 'w-full' %>
+    </div>
 
-  <%= f.label :breath_rate, 'FR:' %>
-  <%= f.number_field :breath_rate, placeholder: 'resp/min' %>
+    <div class = "w-full">
+      <%= f.label :heart_rate, 'FC:' %><br>
+      <%= f.number_field :heart_rate, placeholder: 'lat/min', class: 'w-full' %>
+    </div>
 
-  <%= f.label :general_inspection, 'Insepcción general:' %>
-  <%= f.text_field :general_inspection %>
+    <div class = "w-full">
+      <%= f.label :breath_rate, 'FR:' %><br>
+      <%= f.number_field :breath_rate, placeholder: 'resp/min', class: 'w-full' %>
+    </div>
 
-  <%= f.label :head, 'Cabeza:' %>
-  <%= f.text_field :head %>
+    <div class = "w-full">
+      <%= f.label :extremities, 'Extremidades:' %><br>
+      <%= f.text_field :extremities, class: 'w-full' %>
+    </div>
 
-  <%= f.label :abdomen, 'Abdomen:' %>
-  <%= f.text_field :abdomen %>
+    <div class = "w-full">
+      <%= f.label :general_inspection, 'Insepcción general:' %><br>
+      <%= f.text_field :general_inspection, class: 'w-full' %>
+    </div>
 
-  <%= f.label :neck, 'Cuello:' %>
-  <%= f.text_field :neck %>
+    <div class = "w-full">
+      <%= f.label :head, 'Cabeza:' %><br>
+      <%= f.text_field :head, class: 'w-full' %>
+    </div>
 
-  <%= f.label :extremities, 'Extremidades:' %>
-  <%= f.text_field :extremities %>
+    <div class = "w-full">
+      <%= f.label :abdomen, 'Abdomen:' %><br>
+      <%= f.text_field :abdomen, class: 'w-full' %>
+    </div>
 
-  <%= f.label :spine, 'Columna:' %>
-  <%= f.text_field :spine %>
-
-  <%= f.label :chest, 'Tórax:' %>
-  <%= f.text_field :chest %>
+    <div class = "w-full">
+      <%= f.label :spine, 'Columna:' %><br>
+      <%= f.text_field :spine, class: 'w-full' %>
+    </div>
 </div>

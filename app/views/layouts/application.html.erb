@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -12,9 +13,9 @@
 
   <body>
     <% if flash[:notice] %>
-      <p> <%= flash[:notice] %> </p>
+      <%= render 'flash_messages', message: flash[:notice], svg: 'check-solid.svg' %>
     <% elsif flash[:alert] %>
-      <p> <%= flash[:alert] %> </p>
+      <%= render 'flash_messages', message: flash[:alert], svg: 'times-solid.svg' %>
     <% end %>
     <%= yield %>
   </body>

@@ -1,37 +1,68 @@
-<div>
-  <%= f.label :pain_type, 'Tipo:' %>
-  <%= f.text_field :pain_type %>
+<div id="pain-form" data-component-type="form" class="grid grid-cols-4
+                                                      grid-rows-3 block
+                                                      shadow-md
+                                                      rounded
+                                                      shadow-black
+                                                      bg-white
+                                                      p-4 gap-x-6" >
+    <div class = "w-full">
+      <%= f.label :pain_type, 'Tipo:' %><br>
+      <%= f.text_field :pain_type, class: 'w-full'%>
+    </div>
 
-  <%= f.label :pain_localization, 'Localización:' %>
-  <%= f.text_field :pain_localization %>
+    <div class = "w-full">
+      <%= f.label :pain_localization, 'Localización:' %><br>
+      <%= f.text_field :pain_localization, class: 'w-full' %>
+    </div>
 
-  <%= f.label :pain_evolution, 'Evolución:' %>
-  <%= f.text_field :pain_evolution %>
+    <div class = "w-full">
+      <%= f.label :pain_evolution, 'Evolución:' %><br>
+      <%= f.text_field :pain_evolution, class: 'w-full' %>
+    </div>
 
-  <%= f.label :pain_duration, 'Duración:' %>
-  <%= f.text_field :pain_duration %>
+    <div class = "w-full">
+      <%= f.label :previous_tx, 'TX. Previo:' %><br>
+      <%= f.text_field :previous_tx, class: 'w-full' %>
+    </div>
 
-  <%= f.label :pain_last_time, 'Última vez:' %>
-  <%= f.text_field :pain_last_time %>
+    <div class = "w-full">
+      <%= f.label :pain_duration, 'Duración:' %><br>
+      <%= f.text_field :pain_duration, class: 'w-full' %>
+    </div>
 
-  <%= f.label :pain_initial_state, 'Inicio:' %>
-  <%= f.text_field :pain_initial_state %>
+    <div class = "w-full">
+      <%= f.label :pain_last_time, 'Última vez:' %><br>
+      <%= f.text_field :pain_last_time, class: 'w-full' %>
+    </div>
 
-  <%= f.label :pain_current_state, 'Estado actual:' %>
-  <%= f.text_field :pain_current_state %>
+    <div class = "w-full">
+      <%= f.label :pain_initial_state, 'Inicio:' %><br>
+      <%= f.text_field :pain_initial_state, class: 'w-full' %>
+    </div class = "w-full">
 
-  <%= f.label :alergies, 'Alergias:' %>
-  <%= f.text_field :alergies %>
+    <div class="grid grid-cols-2 content-between w-full">
+      <div>
+        <%= f.label :evaluation, 'EVA:' %><br>
+        <%= f.select :evaluation, options_for_select( (1..10).to_a ), {}, { class: 'w-11/12' } %>
+      </div>
+      <div>
+        <%= f.label :evara, 'EVARA:' %><br>
+        <%= f.select :evara, options_for_select(evara_select_options), {}, { class: 'w-full'} %>
+      </div>
+    </div>
 
-  <%= f.label :irradiations, 'Irradiaciones:' %>
-  <%= f.text_field :irradiations %>
+    <div class = "w-full">
+      <%= f.label :pain_current_state, 'Estado actual:' %><br>
+      <%= f.text_field :pain_current_state, class: 'w-full' %>
+    </div>
 
-  <%= f.label :evaluation, 'EVA:' %>
-  <%= f.select :evaluation, options_for_select( (1..10).to_a ) %>
+    <div class = "w-full">
+      <%= f.label :alergies, 'Alergias:' %><br>
+      <%= f.text_field :alergies, class: 'w-full' %>
+    </div>
 
-  <%= f.label :evara, 'EVARA:' %>
-  <%= f.select :evara, options_for_select(evara_select_options)%>
-
-  <%= f.label :previous_tx, 'TX. Previo:' %>
-  <%= f.text_field :previous_tx %>
+    <div class = "w-full">
+      <%= f.label :irradiations, 'Irradiaciones:' %><br>
+      <%= f.text_field :irradiations, class: 'w-full' %>
+    </div>
 </div>
