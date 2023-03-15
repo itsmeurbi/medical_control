@@ -19,6 +19,10 @@ class PatientsController < ApplicationController
 
   def index
     @patients = Patient.all
+    respond_to do |format|
+      format.html
+      format.json { render json: Patient.whose_fullname_contains(params[:text]) }
+    end
   end
 
   def create
