@@ -4,6 +4,15 @@ document.addEventListener('turbo:load', () => {
 })
 
 const setupContainer = (searchField) => {
+  document.addEventListener('click', (e) => {
+    const clickOutside = !searchField.contains(e.target)
+    if(clickOutside) {
+      const searchContainer = searchField.querySelector('[data-target="search-container"]')
+      searchContainer.classList.add('hidden')
+    }
+  })
+
+
   searchField.addEventListener(['keyup'], () => {
     const searchText = searchField.querySelector('[data-search="search-input"]').value
     showSearchResults(searchText, searchField)
@@ -36,7 +45,7 @@ const setupPatientsList = (patients) => {
     const link = searchMatch.appendChild(document.createElement('a'))
     searchMatch.appendChild(document.createElement('hr'));
     link.href = `/patients/${patient.id}/edit`
-    link.classList.add('flex', 'hover:bg-violet-300', 'p-1')
+    link.classList.add('flex', 'hover:bg-blue-300', 'p-2')
     link.appendChild(document.createTextNode(patient.name));
     patientsList.appendChild(searchMatch);
   });

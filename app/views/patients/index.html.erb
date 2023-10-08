@@ -1,27 +1,27 @@
-<div class='shadow-md shadow-black rounded p-4 m-4 bg-violet-200'>
-  <h1 class='text-3xl mb-4 text-black flex justify-center text-violet-800'>Pacientes</h1>
-  <div class = "shadow-lg shadow-black rounded p-4 mb-6 bg-white">
+<div class='shadow-sm rounded p-4 m-4 bg-blue-50'>
+  <h1 class='text-3xl font-bold mb-4 text-black flex justify-center text-blue-900'>Pacientes</h1>
+  <div class = "shadow-sm rounded p-4 mb-6 bg-white">
     <%= render 'search_field' %>
-    <table class='w-full text-sm text-left text-gray-500 dark:text-gray-400 mb-5 border-black table-auto'>
-      <thead class='text-lg text-white uppercase bg-violet-800 '>
+    <table class='w-full text-sm text-left text-gray-900 dark:text-gray-400 mb-5 border-black table-auto'>
+      <thead class='text-lg text-white uppercase'>
         <tr>
-          <td>Nombre</td>
-          <td>Edad</td>
-          <td>Fecha Ingreso</td>
-          <td>Genero</td>
-          <td>Antecedentes</td>
-          <td></td>
+          <th class="bg-blue-600 px-2 rounded-l">Nombre</th>
+          <th class="bg-blue-600 px-2">Edad</th>
+          <th class="bg-blue-600 px-2">Fecha Ingreso</th>
+          <th class="bg-blue-600 px-2">Genero</th>
+          <th class="bg-blue-600 px-2">Antecedentes</th>
+          <th class="bg-blue-600 px-2 rounded-r"></th>
         </tr>
       </thead>
       <tbody>
         <% if @patients.any? %>
           <% @patients.each do |p| %>
-            <tr>
-              <td> <%= p.name %> </td>
-              <td> <%= p.age %> </td>
-              <td> <%= p.registered_at %> </td>
-              <td> <%= p.gender.titleize %> </td>
-              <td> <%= p.medical_background %> </td>
+            <tr class="border-b border-blue-200">
+              <td class="p-1 font-medium"> <%= p.name %> </td>
+              <td class="p-1"> <%= p.age %> </td>
+              <td class="p-1"> <%= p.registered_at.strftime('%-d de %B del %Y') %> </td>
+              <td class="p-1"> <%= p.gender.titleize %> </td>
+              <td class="p-1"> <%= p.medical_background %> </td>
               <td class="flex items-center pt-1.5 gap-x-1.5">
                 <%= link_to edit_patient_path(p), method: :patch, class: 'h-4', title: 'Editar' do %>
                   <%= show_svg('edit-solid.svg') %>
@@ -38,9 +38,7 @@
       </tbody>
     </table>
   </div>
-  <%= link_to 'Agregar paciente', new_patient_path, class: 'bg-violet-800
-                                                            hover:bg-violet-900
-                                                            shadow-md shadow-black
-                                                            text-white font-bold
-                                                            py-2 px-4 rounded' %>
+  <%= link_to 'Agregar paciente',
+    new_patient_path,
+    class: 'bg-blue-600 hover:bg-blue-800 shadow-sm text-white font-bold py-2 px-4 rounded' %>
 </div>

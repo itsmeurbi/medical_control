@@ -14,12 +14,12 @@ const setupTab = (tab, forms, tabs) => {
     setupTabFormat(tabs)
     tab.classList.remove('text-gray-600',
                          'border-gray-600',
-                         'hover:text-gray-500',
+                         'hover:text-blue-900',
                          'hover:border-gray-500')
-    tab.classList.add('text-blue-600',
-                      'border-blue-600',
-                      'hover:text-blue-500',
-                      'hover:border-blue-500')
+    tab.classList.add('text-blue-800',
+                      'border-blue-800',
+                      'hover:text-blue-900',
+                      'hover:border-blue-900')
     const formId = tab.dataset.target
     forms.forEach((form) => displayForm(form))
     document.getElementById(formId).classList.toggle('hidden')
@@ -28,13 +28,13 @@ const setupTab = (tab, forms, tabs) => {
 
 const setupTabFormat = (tabs) => {
   tabs.forEach((tab) => {
-    tab.classList.remove('text-blue-600',
-                         'border-blue-600',
-                         'hover:text-blue-500',
-                         'hover:border-blue-500')
+    tab.classList.remove('text-blue-800',
+                         'border-blue-800',
+                         'hover:text-blue-900',
+                         'hover:border-blue-900')
     tab.classList.add('text-gray-600',
                       'border-gray-600',
-                      'hover:text-gray-500',
+                      'hover:text-blue-900',
                       'hover:border-gray-500')
   })
 }
