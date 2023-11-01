@@ -6,7 +6,7 @@ class PatientsController < ApplicationController
                               registered_at gender marital_status reference primary_dx initial_dx
                               final_dx medical_background surgical_background interventionism_tx
                               pain_type pain_localization pain_evolution pain_duration
-                              pain_last_time pain_initial_state pain_current_state alergies
+                              pain_last_time pain_initial_state pain_current_state
                               irradiations evaluation evara previous_tx occupations primary_dx
                               initial_dx final_dx medical_background surgical_background
                               interventionism_tx pain_type pain_localization pain_evolution
@@ -15,7 +15,8 @@ class PatientsController < ApplicationController
                               rh_factor weight height blood_pressure heart_rate breath_rate
                               general_inspection head abdomen neck extremities spine chest
                               laboratory cabinet consultations requested_studies tx_date
-                              tx_procedure medicines ].freeze
+                              tx_procedure medicines anticoagulants cellphone_number email
+                              chronics fiscal_situation zip_code ].freeze
 
   def index
     @patients = Patient.all

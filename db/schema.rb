@@ -68,6 +68,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_01_020913) do
     t.text "medicines"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "anticoagulants"
+    t.string "cellphone_number"
+    t.string "chronics"
+    t.string "fiscal_situation"
+    t.string "email"
+    t.string "zip_code"
   end
 
 end

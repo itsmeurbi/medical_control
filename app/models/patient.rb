@@ -8,8 +8,8 @@ class Patient < ApplicationRecord
                     tsearch: { prefix: true }
                   }
 
-  enum gender: { masculino: 0, femenino: 1 }
-  enum marital_status: { casado: 0, divorciado: 1, soltero: 2, union_libre: 3, viudo: 4 }
+  enum gender: { m: 0, f: 1 }
+  enum marital_status: { s: 0, c: 1, d: 2, v: 3, u_l: 4 }
   enum evara: { leve: 0, moderado: 1, fuerte: 2, muy_fuerte: 3, insoportable: 4 }
   enum blood_type: { a: 0, b: 1, ab: 2, o: 3 }
   enum :rh_factor, { negativo: 0, positivo: 1 }, prefix: :rh
