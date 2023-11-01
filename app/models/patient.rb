@@ -15,7 +15,7 @@ class Patient < ApplicationRecord
   enum :rh_factor, { negativo: 0, positivo: 1 }, prefix: :rh
   validates :name, :age, :registered_at, :gender, presence: true
   validates :age, numericality: { only_integer: true, greater_than: 0, less_than: 110 }
-  validates :phone_number, length: { is: 10 }, allow_blank: true
-  validates :phone_number, format: { with: /\A\d+\Z/,
-                                     message: 'only allows numbers' }, allow_blank: true
+  validates :phone_number, :cellphone_number, length: { is: 10 }, allow_blank: true
+  validates :phone_number, :cellphone_number, format: { with: /\A\d+\Z/,
+                                                        message: 'only allows numbers' }, allow_blank: true
 end
