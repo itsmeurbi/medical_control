@@ -2,6 +2,7 @@
 
 class PatientsController < ApplicationController
   before_action :find_patient, only: %i[edit update destroy]
+  before_action :selected_values, only: %i[edit]
   PATIENT_CUSTOM_PARAMS = %i[ name birth_date age city address phone_number medical_record
                               registered_at gender marital_status reference primary_dx initial_dx
                               final_dx medical_background surgical_background interventionism_tx
@@ -63,6 +64,15 @@ class PatientsController < ApplicationController
   end
 
   private
+
+  def selected_values
+    @marital_status = @patient.marital_status
+    @gender = @patient.gender
+    @evaluation = @patient.evaluation
+    @evara = @patient.evara
+    @blood_type = @patient.blood_type
+    @rh_factor = @patient.rh_factor
+  end
 
   def permitted_params
     params.require(:patient).permit(PATIENT_CUSTOM_PARAMS)
