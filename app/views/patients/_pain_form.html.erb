@@ -30,11 +30,11 @@
   <div class="grid grid-cols-2 content-between w-full  pt-2">
     <div>
       <%= f.label :evaluation, 'EVA:' %>
-      <%= f.select :evaluation, options_for_select( (1..10).to_a, selected: @evaluation ), {}, { class: 'w-11/12 rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' } %>
+      <%= f.select :evaluation, options_for_select( (1..10).to_a, selected: @patient.evaluation ), {}, { class: 'w-11/12 rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' } %>
     </div>
     <div>
       <%= f.label :evara, 'EVARA:' %>
-      <%= f.select :evara, options_for_select(evara_select_options, selected: @evara), {}, { class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'} %>
+      <%= f.select :evara, options_for_select(evara_select_options, selected: @patient.evara), {}, { class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'} %>
     </div>
   </div>
   <div class = "w-full pt-2">
