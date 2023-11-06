@@ -2,11 +2,11 @@
 
 module PatientHelper
   def gender_select_options
-    Patient.genders.map { |k, _v| [k.titleize, k] }
+    Patient.genders.map { |k, _v| [k.to_s.first.upcase, k] }
   end
 
   def marital_status_select_options
-    Patient.marital_statuses.map { |k, _v| [k.titleize, k] }
+    Patient.marital_statuses.map { |k, _v| [k.to_s.first.upcase, k] }
   end
 
   def evara_select_options

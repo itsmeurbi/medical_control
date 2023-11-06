@@ -1,44 +1,25 @@
 <%= form_with model: @patient, action: :post do |f| %>
-  <div class="grid grid-cols-3 block shadow rounded bg-white p-4 gap-x-6">
+  <div class="grid grid-cols-3 shadow rounded bg-white p-4 gap-x-6">
     <div class = "grid justify-items-center">
       <div class="w-full">
         <%= f.label :name, 'Nombre:' %>
         <%= f.text_field :name , placeholder: 'John Doe', required: true, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
       </div>
-
-      <div class = "grid grid-cols-2 w-full pt-2">
-        <div>
-          <%= f.label :registered_at, 'F. de Ingreso:' %>
-          <%= f.date_field :registered_at, required: true, class: 'w-11/12 rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-        </div>
-
-        <div>
-          <%= f.label :gender, 'Sexo:' %>
-          <%= f.select :gender, options_for_select(gender_select_options), {}, {class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'} %>
-        </div>
-      </div>
-
       <div class = "grid grid-cols-2 w-full pt-2">
         <div>
           <%= f.label :medical_record, 'Expediente:' %>
           <%= f.text_field :medical_record, class: 'w-11/12 rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'  %>
         </div>
-
         <div>
-          <%= f.label :marital_status, 'Estado Civil:' %>
-          <%= f.select :marital_status, options_for_select(marital_status_select_options),
-                                      {include_blank: 'N/A'}, {class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'} %>
+          <%= f.label :registered_at, 'F. de Ingreso:' %>
+          <%= f.date_field :registered_at, required: true, class: 'w-11/12 rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
         </div>
       </div>
-    </div>
-
-    <div class="grid justify-items-center">
-      <div class="grid grid-cols-2 gap-2 w-full">
+      <div class = "grid grid-cols-4 w-full pt-2">
         <div>
-          <%= f.label :birth_date, 'F. de Nacimiento:' %>
+          <%= f.label :birth_date, 'F. de Nac:' %>
           <%= f.date_field :birth_date, class: 'w-11/12 rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
         </div>
-
         <div>
           <%= f.label :age, 'Edad:' %>
           <%= f.number_field :age, max: 100,
@@ -47,75 +28,105 @@
                                    placeholder: '24 años',
                                    class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
         </div>
+        <div>
+          <%= f.label :gender, 'Sexo:' %>
+          <%= f.select :gender, options_for_select(gender_select_options, selected: @patient.gender), {}, {class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'} %>
+        </div>
+        <div>
+          <%= f.label :marital_status, 'Estado Civil:' %>
+          <%= f.select :marital_status, options_for_select(marital_status_select_options, selected: @patient.marital_status), {}, {class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'} %>  
+        </div>
       </div>
-
+    </div>
+    <div class="grid justify-items-center">
+        <div class="w-full flex flex-col pt-2">
+          <%= f.label :address, 'Domicilio:' %>  
+          <%= f.text_area :address, placeholder: 'Av. Ejemplo #111', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+          </div>
+          <div class="grid grid-cols-2 gap-02 w-full">
+            <div class = "w-full">
+              <%= f.label :city, 'Ciudad:' %>
+              <%= f.text_field :city, placeholder: 'Colima', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+            </div>
+            <div class = "w-full">
+              <%= f.label :zip_code, 'Código Postal:' %>
+              <%= f.text_field :zip_code, placeholder: 'Colima', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+            </div>        
+          </div>  
+      <div class="grid grid-cols-3 gap-2 w-full">
+        <div class="w-full flex flex-col pt-2">
+          <%= f.label :cellphone_number, 'Teléfono Celular:' %>
+          <%= f.text_area :cellphone_number, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+        </div>
+        <div class="w-full flex flex-col pt-2">
+          <%= f.label :phone_number, 'Teléfono:' %>
+          <%= f.text_area :phone_number, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+        </div>
+        <div class="w-full flex flex-col pt-2">
+          <%= f.label :email, class: 'Correo Electrónico:' %>
+          <%= f.text_field :email, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+        </div>
+      </div>
+    </div>
+    <div class="grid justify-items-center">
+      <div  class="w-full">
+          <%= f.label :chronics, 'Crónicos/Degenerativos:' %>
+          <%= f.text_area :chronics, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+      </div>
+        <div  class="w-full pt-2">
+          <%= f.label :initial_dx, 'DX. A. Inicial:' %>
+          <%= f.text_area :initial_dx, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+        </div>
+      <div  class="w-full pt-2">
+          <%= f.label :final_dx, 'DX. A. Final:' %>
+          <%= f.text_area :final_dx, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+      </div>
+    </div>
+    <div class="pt-2">
       <div class = "w-full pt-2">
         <%= f.label :reference, 'Referencia:' %>
         <%= f.text_field :reference, placeholder: 'Nombre de quien referenció', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
       </div>
-
-      <div class = "w-full pt-2">
-        <%= f.label :occupations, 'Ocupaciones:' %>
-        <%= f.text_field :occupations, placeholder: 'Deporte, Danza, Lectura...',
-                                       class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+      <div class="w-full grid grid-cols-2 pt-2" >
+        <div class = "w-full pt-2" >
+            <%= f.label :occupations, 'Ocupación:' %>  
+            <%= f.text_area :occupations, placeholder: 'Deporte, Danza, Lectura...',
+                                           class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>  
+        </div>
+        <div class = "w-full pt-2" >
+            <%= f.label :fiscal_situation, 'S. Fiscal/Fact:' %>
+            <%= f.text_area :fiscal_situation, placeholder: 'Moral/Física',
+                                             class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+        </div>
       </div>
     </div>
-
-    <div class="grid justify-items-center">
-      <div class = "w-full">
-        <%= f.label :city, 'Ciudad:' %>
-        <%= f.text_field :city, placeholder: 'Colima', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-      </div>
-
-      <div class = "w-full flex flex-col pt-2">
-        <%= f.label :address, 'Domicilio:' %>
-        <%= f.text_field :address, placeholder: 'Av. Ejemplo #111', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-      </div>
-
-      <div class = "w-full flex flex-col pt-2">
-        <%= f.label :phone_number, 'Teléfono:' %>
-        <%= f.text_field :phone_number, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-      </div>
-    </div>
-
     <div class="pt-2">
-      <div class = "w-full flex flex-col">
-        <%= f.label :primary_dx, 'DX. Primario:' %>
-        <%= f.text_area :primary_dx, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+      <div class="w-full grid grid-cols-2 pt-2 text-red-600" >
+        <div class="w-full flex flex-col pt-2">
+          <%= f.label :alergies, 'Alergías:' %>
+          <%= f.text_area :alergies, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+        </div>
+        <div class="w-full flex flex-col pt-2">
+            <%= f.label :anticoagulants, 'Anticoagulantes:' %>
+            <%= f.text_area :anticoagulants, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+        </div>
       </div>
-
-      <div class = "w-full flex flex-col pt-2">
-        <%= f.label :medical_background, 'Antecedentes:' %>
-        <%= f.text_area :medical_background, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
-      </div>
+      <div  class="w-full flex flex-col pt-2">
+          <%= f.label :interventionism_tx, 'Tx. Intervencionismo:' %>
+          <%= f.text_area :interventionism_tx, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+        </div>
     </div>
-
     <div class="pt-2">
-      <div class = "w-full flex flex-col">
-        <%= f.label :initial_dx, 'DX. A. Inicial:' %>
-        <%= f.text_area :initial_dx, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
-      </div>
-
-      <div class = "w-full  flex flex-col pt-2">
-        <%= f.label :surgical_background, 'Antecedentes Quirúrgicos:' %>
-        <%= f.text_area :surgical_background, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
-      </div>
-    </div>
-
-    <div class="pt-2">
-      <div class = "w-full flex flex-col">
-        <%= f.label :final_dx, 'DX. A. Final:' %>
-        <%= f.text_area :final_dx, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
-      </div>
-
-      <div class = "w-full flex flex-col pt-2">
-        <%= f.label :interventionism_tx, 'Tx. Intervencionismo:' %>
-        <%= f.text_area :interventionism_tx, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+      <div class="w-full flex flex-col pt-2">
+          <%= f.label :medical_background, 'Antecedentes:' %>
+          <%= f.text_area :medical_background, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+        </div>
+      <div  class="w-full flex flex-col pt-2">
+          <%= f.label :surgical_background, 'Antecedentes Quirúrgicos:' %>
+          <%= f.text_area :surgical_background, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
       </div>
     </div>
   </div>
-
-
   <div data-component="tab-container" class="bg-white mt-0.5 shadow rounded">
     <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200">
       <ul class="flex flex-wrap -mb-px">
@@ -150,7 +161,6 @@
     <%= render 'lab_form', f: f %>
     <%= render 'treatment_form', f: f %>
   </div>
-
   <div class="mt-4 flex">
     <%= f.submit submit, class: 'bg-blue-600 hover:bg-blue-800 shadow-sm text-white font-bold py-2 px-4 rounded block mr-2 cursor-pointer' %>
     <%= link_to 'Regresar', root_path, class: 'bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded' %>
