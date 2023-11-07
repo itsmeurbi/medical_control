@@ -3,53 +3,44 @@
     <%= f.label :pain_type, 'Tipo:' %>
     <%= f.text_field :pain_type, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'%>
   </div>
-
   <div class = "w-full flex flex-col pt-2">
     <%= f.label :pain_localization, 'Localización:' %>
     <%= f.text_field :pain_localization, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
   </div>
-
   <div class = "w-full flex flex-col pt-2">
     <%= f.label :pain_evolution, 'Evolución:' %>
     <%= f.text_field :pain_evolution, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
   </div>
-
   <div class = "w-full flex flex-col pt-2">
     <%= f.label :previous_tx, 'TX. Previo:' %>
     <%= f.text_field :previous_tx, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
   </div>
-
   <div class = "w-full pt-2">
     <%= f.label :pain_duration, 'Duración:' %>
     <%= f.text_field :pain_duration, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
   </div>
-
   <div class = "w-full pt-2">
     <%= f.label :pain_last_time, 'Última vez:' %>
     <%= f.text_field :pain_last_time, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
   </div>
-
   <div class = "w-full pt-2">
     <%= f.label :pain_initial_state, 'Inicio:' %>
     <%= f.text_field :pain_initial_state, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
   </div>
-
   <div class="grid grid-cols-2 content-between w-full  pt-2">
     <div>
       <%= f.label :evaluation, 'EVA:' %>
-      <%= f.select :evaluation, options_for_select( (1..10).to_a ), {}, { class: 'w-11/12 rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' } %>
+      <%= f.select :evaluation, options_for_select( (1..10).to_a, selected: @patient.evaluation ), {}, { class: 'w-11/12 rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' } %>
     </div>
     <div>
       <%= f.label :evara, 'EVARA:' %>
-      <%= f.select :evara, options_for_select(evara_select_options), {}, { class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'} %>
+      <%= f.select :evara, options_for_select(evara_select_options, selected: @patient.evara), {}, { class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'} %>
     </div>
   </div>
-
   <div class = "w-full pt-2">
     <%= f.label :pain_current_state, 'Estado actual:' %>
     <%= f.text_field :pain_current_state, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
   </div>
-  
   <div class = "w-full pt-2">
     <%= f.label :irradiations, 'Irradiaciones:' %>
     <%= f.text_field :irradiations, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
