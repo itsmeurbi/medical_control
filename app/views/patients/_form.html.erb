@@ -39,18 +39,18 @@
       </div>
     </div>
     <div class="grid justify-items-center">
-        <div class="w-full flex flex-col pt-2">
+        <div class="w-full flex flex-col">
           <%= f.label :address, 'Domicilio:' %>
-          <%= f.text_area :address, placeholder: 'Av. Ejemplo #111', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+          <%= f.text_area :address, placeholder: 'Av. Ejemplo #111', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
           </div>
-          <div class="grid grid-cols-2 gap-2 w-full">
+          <div class="grid grid-cols-2 gap-2 w-full pt-2">
             <div class = "w-full">
               <%= f.label :city, 'Ciudad:' %>
               <%= f.text_field :city, placeholder: 'Colima', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
             </div>
             <div class = "w-full">
               <%= f.label :zip_code, 'Código Postal:' %>
-              <%= f.text_field :zip_code, placeholder: 'Colima', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+              <%= f.text_field :zip_code, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
             </div>
           </div>
       <div class="grid grid-cols-3 gap-2 w-full">
