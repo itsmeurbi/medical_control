@@ -1,7 +1,13 @@
-<div id="treatment-form" data-component-type="form" class="grid grid-cols-3 block shadow rounded bg-white p-4 gap-x-6 hidden">
-  <div class = "w-full">
-    <%= f.label :tx_date, 'F. del tratamiento:' %>
-    <%= f.date_field :tx_date, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+<div id="treatment-form" data-component-type="form" class="grid grid-cols-4 block shadow rounded bg-white p-4 gap-x-6">
+  <div class = "w-full block">
+    <div>
+      <%= f.label :tx_date, 'F. del tratamiento:' %>
+    </div>
+    <%= f.date_field :tx_date, class: 'w-half rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+  </div>
+  <div>
+    <%= f.label :consultations_received, 'Número de Consulta:' %>
+    <%= f.number_field :consultations_received, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
   </div>
   <div class = "w-full">
     <%= f.label :tx_procedure, 'Procedimiento:' %>
