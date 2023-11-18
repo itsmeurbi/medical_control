@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_18_035525) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_18_041057) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_18_035525) do
     t.string "alergies"
     t.string "irradiations"
     t.integer "evaluation"
-    t.integer "evara"
+    t.integer "evera"
     t.string "previous_tx"
     t.integer "blood_type"
     t.integer "rh_factor"
