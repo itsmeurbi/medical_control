@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_01_020913) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_18_035525) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_01_020913) do
     t.integer "rh_factor"
     t.float "weight"
     t.float "height"
-    t.integer "blood_pressure"
+    t.string "blood_pressure"
     t.integer "heart_rate"
     t.integer "breath_rate"
     t.text "general_inspection"

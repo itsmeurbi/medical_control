@@ -39,19 +39,11 @@
     <%= f.label :spine, 'Columna:' %>
     <%= f.text_area :spine, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
   </div>
-  <div class = "w-full pt-2">
-    <%= f.label :blood_pressure, 'TA:' %>
-    <%= f.number_field :blood_pressure, placeholder: '120 mmHg', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-  </div>
-  <div class = "w-full pt-2">
-    <%= f.label :chest, 'Tórax:' %>
-    <%= f.text_area :chest, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
-  </div>
-  <div class = "w-full pt-2">
-    <%= f.label :extremities, 'Extremidades:' %>
-    <%= f.text_area :extremities, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
-  </div>
-  <div class="grid grid-cols-2 gap-2 w-full pt-2">
+  <div class="grid grid-cols-3 gap-2 w-full pt-2">
+    <div class = "w-full">
+      <%= f.label :blood_pressure, 'TA:' %>
+      <%= f.text_field :blood_pressure, placeholder: '120/70 mmHg', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+    </div>  
     <div class = "w-full">
       <%= f.label :heart_rate, 'FC:' %>
       <%= f.number_field :heart_rate, placeholder: 'lat/min', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
@@ -62,7 +54,11 @@
     </div>
   </div>
   <div class = "w-full pt-2">
-    <%= f.label :general_inspection, 'Inspección general:' %>
-    <%= f.text_area :general_inspection, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+    <%= f.label :chest, 'Tórax:' %>
+    <%= f.text_area :chest, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+  </div>
+  <div class = "w-full pt-2">
+    <%= f.label :extremities, 'Extremidades:' %>
+    <%= f.text_area :extremities, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
   </div>
 </div>
