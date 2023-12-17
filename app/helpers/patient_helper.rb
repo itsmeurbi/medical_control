@@ -9,8 +9,8 @@ module PatientHelper
     Patient.marital_statuses.map { |k, _v| [k.to_s.first.upcase, k] }
   end
 
-  def evara_select_options
-    Patient.evaras.map { |k, _v| [k.titleize, k] }
+  def evera_select_options
+    Patient.everas.map { |k, _v| [k.titleize, k] }
   end
 
   def blood_type_select_options
