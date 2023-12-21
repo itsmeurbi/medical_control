@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_18_041057) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_21_041843) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -74,6 +74,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_18_041057) do
     t.string "fiscal_situation"
     t.string "email"
     t.string "zip_code"
+    t.boolean "rx", default: false, null: false
+    t.boolean "cat", default: false, null: false
+    t.boolean "mri", default: false, null: false
+    t.boolean "us", default: false, null: false
+    t.boolean "do", default: false, null: false
+    t.boolean "emg", default: false, null: false
   end
 
 end
