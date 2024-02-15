@@ -19,5 +19,5 @@ class Patient < ApplicationRecord
   validates :phone_number, :cellphone_number, format: { with: /\A\d+\Z/,
                                                         message: 'only allows numbers' }, allow_blank: true
 
-  has_many :consultations, inverse_of: :patient, dependent: :restrict_with_error
+  has_many :treatments, class_name: 'Consultation', inverse_of: :patient, dependent: :restrict_with_error
 end
