@@ -78,9 +78,9 @@ class PatientsController < ApplicationController
                   :pain_initial_state, :pain_current_state, :alergies, :irradiations, :evaluation,
                   :evara, :previous_tx, :blood_type, :rh_factor, :weight, :height, :blood_pressure,
                   :heart_rate, :breath_rate, :general_inspection, :head, :abdomen, :neck,
-                  :extremities, :spine, :chest, :laboratory, :cabinet, :consultations,
+                  :extremities, :spine, :chest, :laboratory, :cabinet, :consultations, :evera,
                   :requested_studies, :anticoagulants, :cellphone_number, :email, :chronics,
-                  :fiscal_situation, :zip_code, treatments: [:date, :meds, :procedure])
+                  :fiscal_situation, :zip_code, treatments_attributes: [:date, :meds, :procedure])
   end
   # rubocop:enable Metrics/MethodLength
 
