@@ -20,4 +20,6 @@ class Patient < ApplicationRecord
                                                         message: 'only allows numbers' }, allow_blank: true
 
   has_many :treatments, class_name: 'Consultation', inverse_of: :patient, dependent: :restrict_with_error
+
+  accepts_nested_attributes_for :treatments
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_15_011545) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_15_023140) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,9 +73,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_15_011545) do
     t.text "cabinet"
     t.text "consultations"
     t.text "requested_studies"
-    t.date "tx_date"
-    t.text "tx_procedure"
-    t.text "medicines"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "anticoagulants"

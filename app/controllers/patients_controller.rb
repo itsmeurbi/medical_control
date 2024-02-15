@@ -64,9 +64,25 @@ class PatientsController < ApplicationController
 
   private
 
+  # rubocop:disable Metrics/MethodLength
   def permitted_params
-    params.require(:patient).permit(PATIENT_CUSTOM_PARAMS)
+    params.require(:patient)
+          .permit(:name, :birth_date, :age, :city, :address, :phone_number, :medical_record,
+                  :registered_at, :gender, :marital_status, :reference, :primary_dx, :initial_dx,
+                  :final_dx, :medical_background, :surgical_background, :interventionism_tx,
+                  :pain_type, :pain_localization, :pain_evolution, :pain_duration, :pain_last_time,
+                  :pain_initial_state, :pain_current_state, :irradiations, :evaluation, :evara,
+                  :previous_tx, :occupations, :primary_dx, :initial_dx, :final_dx,
+                  :medical_background, :surgical_background, :interventionism_tx,
+                  :pain_type, :pain_localization, :pain_evolution, :pain_duration, :pain_last_time,
+                  :pain_initial_state, :pain_current_state, :alergies, :irradiations, :evaluation,
+                  :evara, :previous_tx, :blood_type, :rh_factor, :weight, :height, :blood_pressure,
+                  :heart_rate, :breath_rate, :general_inspection, :head, :abdomen, :neck,
+                  :extremities, :spine, :chest, :laboratory, :cabinet, :consultations,
+                  :requested_studies, :anticoagulants, :cellphone_number, :email, :chronics,
+                  :fiscal_situation, :zip_code, treatments: [:date, :meds, :procedure])
   end
+  # rubocop:enable Metrics/MethodLength
 
   def find_patient
     @patient = Patient.find(params[:id])
