@@ -1,16 +1,18 @@
-<div id="treatment-form" data-component-type="form" class="grid grid-cols-3 block shadow rounded bg-white p-4 gap-x-6">
-  <div class = "w-full block">
-    <div>
-      <%= f.label :tx_date, 'F. del tratamiento:' %>
+<div id="treatment-form" data-component-type="form" class="grid grid-cols-3 block shadow rounded bg-white p-4 gap-x-6 hidden">
+  <%= f.fields_for :treatments, @patient.treatments.build do |ff| %>
+    <div class = "w-full block">
+      <div>
+        <%= ff.label :date, 'F. del tratamiento:' %>
+      </div>
+      <%= ff.date_field :date, class: 'w-half rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
     </div>
-    <%= f.date_field :tx_date, class: 'w-half rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-  </div>
-  <div class = "w-full">
-    <%= f.label :tx_procedure, 'Procedimiento:' %>
-    <%= f.text_area :tx_procedure, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-  </div>
-  <div class = "w-full">
-    <%= f.label :medicines, 'Medicamentos:' %>
-    <%= f.text_area :medicines, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-  </div>
+    <div class = "w-full">
+      <%= ff.label :procedure, 'Procedimiento:' %>
+      <%= ff.text_area :procedure, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+    </div>
+    <div class = "w-full">
+      <%= ff.label :meds, 'Medicamentos:' %>
+      <%= ff.text_area :meds, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+    </div>
+  <% end %>
 </div>
