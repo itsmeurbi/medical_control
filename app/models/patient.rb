@@ -23,6 +23,8 @@ class Patient < ApplicationRecord
   accepts_nested_attributes_for :treatments, reject_if: ->(attrs) { attrs[:meds].blank? && attrs[:procedure].blank? }
 
   def age
+    return nil unless birth_date
+
     ((Time.zone.now - birth_date.to_time) / 1.year.seconds).floor
   end
 end

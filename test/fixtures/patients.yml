@@ -1,7 +1,6 @@
 first_patient:
     name: Urbi
     birth_date: <%= Time.now - 26.year %>
-    age: 26
     city: Colima
     address: 123 Street AV.
     phone_number: 3121212222

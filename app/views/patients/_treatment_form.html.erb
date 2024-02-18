@@ -1,8 +1,10 @@
 <div id="treatment-form" data-component-type="form" class="grid grid-cols-2 block shadow rounded bg-white p-4 hidden">
-  <div class="flex flex-col justify-between border-solid border-r border-gray-400 pr-4">
-    <%= turbo_frame_tag "treatments_list", src: patient_consultations_path(@patient, format: :turbo_stream, page: params[:page]), loading: "lazy" %>
-    <%= turbo_frame_tag "treatments_pagination" %>
-  </div>
+  <% if @patient.persisted? %>
+    <div class="flex flex-col justify-between border-solid border-r border-gray-400 pr-4">
+      <%= turbo_frame_tag "treatments_list", src: patient_consultations_path(@patient, format: :turbo_stream, page: params[:page]), loading: "lazy" %>
+      <%= turbo_frame_tag "treatments_pagination" %>
+    </div>
+  <% end %>
   <div class= "border-solid border-l border-gray-400 pl-4">
     <h2 class="text-lg">
       Nuevo Tratamiento
