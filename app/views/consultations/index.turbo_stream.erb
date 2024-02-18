@@ -5,7 +5,7 @@
   <% @treatments.each do |treatment| %>
     <div class = "w-full block">
       <h4 class="text-md">F. del tratamiento:</h4>
-      <p class="ml-2"><%= treatment.date.strftime('%d de %B del %Y') %></p>
+      <p class="ml-2"><%= l(treatment.date, format: '%d de %B del %Y') %></p>
       <h4 class="text-md mt-2">Procedimiento:</h4>
       <p class="ml-2"><%= treatment.procedure %></p>
       <h4 class="text-md mt-2">Medicamentos:</h4>
