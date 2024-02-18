@@ -1,0 +1,27 @@
+<%= fields model: @patient do |form| %>
+  <%= form.fields_for @consultation, child_index: params[:index] do |consultation_form| %>
+    <%= turbo_stream.replace "add-consultation" do %>
+      <%= form.submit "Añadir consulta",
+            formaction: task_path(consultation_form.index.to_i + 1),
+            formmethod: :post,
+            formnovalidate: true,
+            id: "add-task" %>
+    <% end %>
+    <%= turbo_stream.append "tasks" do %>
+      <div class = "w-full block">
+        <div>
+          <%= consultation_form.label :date, 'F. del tratamiento:' %>
+        </div>
+        <%= consultation_form.date_field :date, class: 'w-half rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+      </div>
+      <div class = "w-full">
+        <%= consultation_form.label :procedure, 'Procedimiento:' %>
+        <%= consultation_form.text_area :procedure, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+      </div>
+      <div class = "w-full">
+        <%= consultation_form.label :meds, 'Medicamentos:' %>
+        <%= consultation_form.text_area :meds, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,21 @@
+<%= turbo_stream.update("treatments_list") do %>
+  <h2 class="text-lg mb-2">
+    Historial de tratamientos
+  </h2>
+  <% @treatments.each do |treatment| %>
+    <div class = "w-full block">
+      <h4 class="text-md">F. del tratamiento:</h4>
+      <p class="ml-2"><%= treatment.date.strftime('%d de %B del %Y') %></p>
+      <h4 class="text-md mt-2">Procedimiento:</h4>
+      <p class="ml-2"><%= treatment.procedure %></p>
+      <h4 class="text-md mt-2">Medicamentos:</h4>
+      <p class="ml-2"><%= treatment.meds %></p>
+    </div>
+  <% end %>
+<% end %>
+
+<% if @treatments.any? %>
+  <%= turbo_stream.update "treatments_pagination" do %>
+    <%== pagy_nav(@pagy, link_extra: 'data-turbo-stream="true"') %>
+  <% end %>
+<% end %>

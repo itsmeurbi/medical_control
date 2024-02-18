@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class PatientsController < ApplicationController
+  include Pagy::Backend
+
   before_action :find_patient, only: %i[edit update destroy]
   PATIENT_CUSTOM_PARAMS = %i[ name birth_date age city address phone_number medical_record
                               registered_at gender marital_status reference primary_dx initial_dx
@@ -41,7 +43,9 @@ class PatientsController < ApplicationController
     @patient = Patient.new
   end
 
-  def edit; end
+  def edit
+    @pagy, @treatments = pagy(@patient.treatments, items: 1)
+  end
 
   def update
     if @patient.update(permitted_params)
