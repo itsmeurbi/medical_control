@@ -24,7 +24,8 @@
           <%= f.label :age, 'Edad:' %>
           <%= f.number_field :age, max: 100,
                                    min: 1,
-                                   required: true,
+                                   disabled: true,
+                                   readonly: true,
                                    placeholder: '24 años',
                                    class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
         </div>
