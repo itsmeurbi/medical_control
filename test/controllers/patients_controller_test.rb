@@ -4,7 +4,13 @@ require "test_helper"
 
 class PatientsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @patient = patients(:first_patient)
+    @patient = Patient.create!(name: 'Urbi',
+                               birth_date: Time.zone.now - 26.years,
+                               age: 26,
+                               city: 'Colima',
+                               address: '123 Street AV',
+                               registered_at: Time.zone.now,
+                               gender: 0)
   end
 
   test 'should index all patients' do

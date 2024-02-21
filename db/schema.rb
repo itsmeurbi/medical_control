@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_18_041057) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_15_023140) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "consultations", force: :cascade do |t|
+    t.bigint "patient_id", null: false
+    t.text "procedure"
+    t.text "meds"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_consultations_on_patient_id"
+  end
 
   create_table "patients", force: :cascade do |t|
     t.string "name", null: false
@@ -63,9 +73,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_18_041057) do
     t.text "cabinet"
     t.text "consultations"
     t.text "requested_studies"
-    t.date "tx_date"
-    t.text "tx_procedure"
-    t.text "medicines"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "anticoagulants"
@@ -74,6 +81,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_18_041057) do
     t.string "fiscal_situation"
     t.string "email"
     t.string "zip_code"
+    t.boolean "rx", default: false, null: false
+    t.boolean "cat", default: false, null: false
+    t.boolean "mri", default: false, null: false
+    t.boolean "us", default: false, null: false
+    t.boolean "do", default: false, null: false
+    t.boolean "emg", default: false, null: false
   end
 
+  add_foreign_key "consultations", "patients"
 end
