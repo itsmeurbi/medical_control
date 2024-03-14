@@ -27,4 +27,10 @@ class Patient < ApplicationRecord
 
     ((Time.zone.now - birth_date.to_time) / 1.year.seconds).floor
   end
+
+  def medical_record
+    return nil if new_record?
+
+    "EXP#{id}"
+  end
 end
