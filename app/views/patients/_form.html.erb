@@ -1,6 +1,6 @@
 <%= form_with model: @patient, action: :post do |f| %>
-  <div class="grid grid-cols-3 shadow rounded bg-white p-4 gap-x-6 gap-y-6">
-    <div class="grid flex flex-col justify-between">
+  <div class="grid grid-cols-3 shadow rounded bg-white p-4 gap-x-6 gap-y-2">
+    <div class="grid">
       <div class="w-full">
         <%= f.label :name, 'Nombre:' %>
         <%= f.text_field :name , placeholder: 'John Doe', required: true, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
@@ -15,8 +15,8 @@
           <%= f.date_field :registered_at, required: true, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
         </div>
       </div>
-      <div class = "grid grid-cols-4 w-full gap-2">
-        <div class="flex flex-col justify-end">
+      <div class = "grid grid-cols-6 w-full gap-2">
+        <div class="flex flex-col justify-end col-span-3">
           <%= f.label :birth_date, 'F. Nac:' %>
           <%= f.date_field :birth_date, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
         </div>
@@ -39,21 +39,15 @@
         </div>
       </div>
     </div>
-    <div class="grid flex flex-col justify-between">
-        <div class="w-full">
-          <%= f.label :address, 'Domicilio:' %>
-          <%= f.text_area :address, placeholder: 'Av. Ejemplo #111', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
-          </div>
-          <div class="grid grid-cols-2 gap-2 w-full">
-            <div class = "w-full">
-              <%= f.label :city, 'Ciudad:' %>
-              <%= f.text_field :city, placeholder: 'Colima', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-            </div>
-            <div class = "w-full">
-              <%= f.label :zip_code, 'Código Postal:' %>
-              <%= f.text_field :zip_code, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-            </div>
-          </div>
+    <div class="grid">
+      <div class="w-full flex flex-col">
+        <%= f.label :alergies, 'ALÉRGIAS:', class: 'font-bold text-red-600' %>
+        <%= f.text_area :alergies, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+      </div>
+      <div class="w-full flex flex-col ">
+          <%= f.label :anticoagulants, 'ANTICOAGULANTES:', class: 'font-bold text-red-600' %>
+          <%= f.text_area :anticoagulants, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+      </div>
       <div class="grid grid-cols-3 gap-2 w-full">
         <div class="w-full flex flex-col justify-end">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -75,7 +69,7 @@
         </div>
       </div>
     </div>
-    <div class="grid flex flex-col justify-between">
+    <div class="grid">
       <div  class="w-full">
           <%= f.label :chronics, 'Crónicos/Degenerativas:' %>
           <%= f.text_area :chronics, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
@@ -90,47 +84,51 @@
       </div>
     </div>
     <div>
-      <div class = "w-full">
-        <%= f.label :reference, 'Referencia:' %>
-        <%= f.text_field :reference, placeholder: 'Nombre de quien referenció', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-      </div>
-      <div class="w-full grid grid-cols-2 pt-2 gap-2" >
-        <div class = "w-full" >
-            <%= f.label :occupations, 'Ocupación:' %>
-            <%= f.text_area :occupations, placeholder: 'Deporte, Danza, Lectura...',
-                                           class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+      <div class="w-full grid grid-cols-2 gap-2">
+        <div class = "w-full">
+          <%= f.label :reference, 'Referencia:' %>
+          <%= f.text_field :reference, placeholder: 'Quien referenció', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
         </div>
         <div class = "w-full" >
-            <%= f.label :fiscal_situation, 'S. Fiscal/Fact:' %>
-            <%= f.text_area :fiscal_situation, placeholder: 'Moral/Física',
-                                             class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+          <%= f.label :fiscal_situation, 'S. Fiscal/Fact:' %>
+          <%= f.text_area :fiscal_situation, placeholder: 'Moral/Física',
+                                            class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+        </div>
+      </div>
+      <div class="w-full grid grid-cols-1 gap-2" >
+        <div class = "w-full" >
+          <%= f.label :occupations, 'Ocupación:' %>
+          <%= f.text_area :occupations, placeholder: 'Deporte, Danza, Lectura...',
+                                          class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
         </div>
       </div>
     </div>
     <div>
-      <div class="w-full grid grid-cols-2 text-red-600 gap-2" >
-        <div class="w-full flex flex-col">
-          <%= f.label :alergies, 'Alergías:' %>
-          <%= f.text_area :alergies, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+      <div class="w-full grid grid-cols-8 gap-2" >
+        <div class="w-full col-span-5">
+          <%= f.label :address, 'Domicilio:' %>
+          <%= f.text_area :address, placeholder: 'Av. La Paz #111', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
         </div>
-        <div class="w-full flex flex-col">
-            <%= f.label :anticoagulants, 'Anticoagulantes:' %>
-            <%= f.text_area :anticoagulants, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+        <div class = "w-full col-span-3">
+          <%= f.label :city, 'Ciudad:' %>
+          <%= f.text_field :city, placeholder: 'Colima', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
         </div>
       </div>
-      <div  class="w-full flex flex-col pt-2">
+      <div class="w-full grid grid-cols-1 gap-2" >
+        <div class="w-full flex flex-col">
           <%= f.label :interventionism_tx, 'Tx. Intervencionismo:' %>
           <%= f.text_area :interventionism_tx, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
         </div>
+      </div>
     </div>
     <div>
       <div class="w-full flex flex-col">
-          <%= f.label :medical_background, 'Antecedentes:' %>
-          <%= f.text_area :medical_background, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
-        </div>
+        <%= f.label :medical_background, 'Antecedentes:' %>
+        <%= f.text_area :medical_background, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+      </div>
       <div  class="w-full flex flex-col pt-2">
-          <%= f.label :surgical_background, 'QX:' %>
-          <%= f.text_area :surgical_background, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+        <%= f.label :surgical_background, 'QX:' %>
+        <%= f.text_area :surgical_background, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
       </div>
     </div>
   </div>

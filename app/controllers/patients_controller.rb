@@ -84,7 +84,7 @@ class PatientsController < ApplicationController
                   :heart_rate, :breath_rate, :general_inspection, :head, :abdomen, :neck,
                   :extremities, :spine, :chest, :laboratory, :cabinet, :consultations, :evera,
                   :requested_studies, :anticoagulants, :cellphone_number, :email, :chronics,
-                  :emg, :rx, :cat, :mri, :us, :do,
+                  :emg, :rx, :cat, :mri, :us, :do, :spo2,
                   :fiscal_situation, :zip_code, treatments_attributes: [:date, :meds, :procedure])
   end
   # rubocop:enable Metrics/MethodLength
