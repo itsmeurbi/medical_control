@@ -15,10 +15,10 @@
           <%= f.date_field :registered_at, required: true, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
         </div>
       </div>
-      <div class = "grid grid-cols-6 w-full gap-2">
-        <div class="flex flex-col justify-end col-span-3">
+      <div class = "grid grid-cols-6 w-full gap-2" data-controller="birthday">
+        <div class="flex flex-col justify-end col-span-3" >
           <%= f.label :birth_date, 'F. Nac:' %>
-          <%= f.date_field :birth_date, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+          <%= f.date_field :birth_date, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', data: { birthday_target: "dateInput", action: "birthday#updateAge" } %>
         </div>
         <div class="flex flex-col justify-end">
           <%= f.label :age, 'Edad:' %>
@@ -27,7 +27,8 @@
                                    value: @patient.age,
                                    disabled: true,
                                    readonly: true,
-                                   class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+                                   class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500',
+                                   data: { birthday_target: "ageInput" } %>
         </div>
         <div class="flex flex-col justify-end">
           <%= f.label :gender, 'Sexo:' %>
