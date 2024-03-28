@@ -31,8 +31,12 @@
       <%= f.text_area :pain_duration, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
     </div>
     <div class = "w-full flex flex-col pt-2">
-      <%= f.label :pain_last_time, 'Última vez:' %>
-      <%= f.text_field :pain_last_time, placeholder: "Con qué disminuye", class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+      <%= f.label :increases_with do %>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+          <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm.53 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v5.69a.75.75 0 0 0 1.5 0v-5.69l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z" clip-rule="evenodd" />
+        </svg>
+      <% end %>
+      <%= f.text_field :increases_with, placeholder: "Aumenta con", class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
     </div>
     <div class = "w-full flex flex-col pt-2">
       <%= f.label :previous_tx, 'TX. Previo:' %>
@@ -47,6 +51,14 @@
     <div class = "w-full flex flex-col pt-2">
       <%= f.label :pain_localization, 'Localización:' %>
       <%= f.text_area :pain_localization, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+    </div>
+    <div class = "w-full flex flex-col pt-2">
+      <%= f.label :decreases_with do %>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+          <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-.53 14.03a.75.75 0 0 0 1.06 0l3-3a.75.75 0 1 0-1.06-1.06l-1.72 1.72V8.25a.75.75 0 0 0-1.5 0v5.69l-1.72-1.72a.75.75 0 0 0-1.06 1.06l3 3Z" clip-rule="evenodd" />
+        </svg>
+      <% end %>
+      <%= f.text_field :decreases_with, placeholder: "Disminuye con", class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
     </div>
   </div>
 </div>

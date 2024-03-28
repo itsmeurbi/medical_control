@@ -19,7 +19,6 @@ first_patient:
     pain_localization:
     pain_evolution:
     pain_duration:
-    pain_last_time:
     pain_initial_state:
     pain_current_state:
     alergies:
