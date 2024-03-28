@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_15_023140) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_14_172454) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +27,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_15_023140) do
   create_table "patients", force: :cascade do |t|
     t.string "name", null: false
     t.date "birth_date"
-    t.integer "age", null: false
     t.string "city"
     t.string "address"
     t.string "phone_number"
@@ -87,6 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_15_023140) do
     t.boolean "us", default: false, null: false
     t.boolean "do", default: false, null: false
     t.boolean "emg", default: false, null: false
+    t.string "spo2"
   end
 
   add_foreign_key "consultations", "patients"

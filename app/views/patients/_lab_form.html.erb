@@ -1,11 +1,11 @@
 <div id="lab-form" data-component-type="form" class="grid grid-cols-2 grid-rows-2 block shadow rounded bg-white p-4 gap-x-6 hidden">
-  <div class="pt-2">
+  <div>
     <%= f.label :laboratory, 'Laboratorio:' %>
     <%= f.text_area :laboratory, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
   </div>
-  <div class="pt-2">
+  <div>
     <p>Estudios</p>
-    <div class="flex justify-center">
+    <div class="flex justify-start">
       <div class="pt-2 px-2">
         <%= f.label :rx, 'Rx:' %>
         <%= f.check_box :rx, class: 'rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
@@ -15,8 +15,8 @@
         <%= f.check_box :cat, class: 'rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
       </div>
       <div class="pt-2 px-2">
-        <%= f.label :irm, 'IRM:' %>
-        <%= f.check_box :irm, class: 'rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+        <%= f.label :mri, 'IRM:' %>
+        <%= f.check_box :mri, class: 'rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
       </div>
       <div class="pt-2 px-2">
         <%= f.label :us, 'US:' %>
@@ -30,7 +30,7 @@
         <%= f.label :emg, 'EMG:' %>
         <%= f.check_box :emg, class: 'rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
       </div>
-    </div>  
+    </div>
   </div>
   <div class="pt-2">
     <%= f.label :cabinet, 'Gabinete:' %>
