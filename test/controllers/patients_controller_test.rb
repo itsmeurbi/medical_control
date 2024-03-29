@@ -3,7 +3,10 @@
 require "test_helper"
 
 class PatientsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in users(:one)
     @patient = Patient.create!(name: 'Urbi',
                                birth_date: Time.zone.now - 26.years,
                                city: 'Colima',

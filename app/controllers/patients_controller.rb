@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PatientsController < ApplicationController
+class PatientsController < AuthController
   include Pagy::Backend
 
   before_action :find_patient, only: %i[edit update destroy]
