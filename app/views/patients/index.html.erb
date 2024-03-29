@@ -24,10 +24,10 @@
                 <td class="px-6 py-4"> <%= p.gender.titleize %> </td>
                 <td class="px-6 py-4"> <%= p.medical_background&.truncate(100) %> </td>
                 <td class="flex items-center pt-1.5 gap-x-1.5">
-                  <%= link_to edit_patient_path(p), method: :patch, class: 'h-4', title: 'Editar' do %>
+                  <%= link_to edit_patient_path(p), method: :patch, class: 'h-4 w-4', title: 'Editar' do %>
                     <%= show_svg('edit-solid.svg') %>
                   <% end %>
-                  <%= button_to patient_path(p), method: :delete, data: { turbo_confirm: '¿Estas seguro?' }, class: 'h-4 flex', title: "Eliminar" do %>
+                  <%= button_to patient_path(p), method: :delete, data: { turbo_confirm: '¿Estas seguro?' }, class: 'h-4 w-4 flex', title: "Eliminar" do %>
                     <%= show_svg('trash-solid.svg')  %>
                   <% end %>
                 </td>
