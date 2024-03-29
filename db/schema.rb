@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_14_172454) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_28_193309) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,7 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_14_172454) do
     t.string "pain_localization"
     t.string "pain_evolution"
     t.string "pain_duration"
-    t.string "pain_last_time"
     t.string "pain_initial_state"
     t.string "pain_current_state"
     t.string "alergies"
@@ -87,6 +86,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_14_172454) do
     t.boolean "do", default: false, null: false
     t.boolean "emg", default: false, null: false
     t.string "spo2"
+    t.string "increases_with"
+    t.string "decreases_with"
   end
 
   add_foreign_key "consultations", "patients"
