@@ -1,7 +1,11 @@
 <div class='shadow-sm rounded p-4 m-4 bg-blue-50'>
   <h1 class='text-3xl font-bold mb-4 text-black flex justify-center text-blue-900'>Pacientes</h1>
   <div class = "shadow-sm rounded p-4 mb-6 bg-white">
-    <%= render 'search_field' %>
+    <div class="pb-4 bg-white mt-4 flex justify-between items-center relative">
+      <%= render 'search_field' %>
+      <%= link_to 'Agregar paciente', new_patient_path, class: 'bg-blue-600 hover:bg-blue-800 shadow-sm text-white font-bold py-2 px-4 rounded' %>
+    </div>
+
     <div class="overflow-x-auto shadow-md sm:rounded-lg">
       <table class='w-full text-sm text-left text-gray-900 dark:text-gray-400 mb-5 border-black table-auto rtl:text-right text-gray-500 dark:text-gray-400'>
         <thead class='text-lg text-white uppercase'>
@@ -40,10 +44,4 @@
       </table>
     </div>
   </div>
-  <%= link_to 'Agregar paciente',
-    new_patient_path,
-    class: 'bg-blue-600 hover:bg-blue-800 shadow-sm text-white font-bold py-2 px-4 rounded' %>
-      <%= link_to 'Guardar datos',
-    patients_path(format: :zip),
-    class: 'bg-blue-600 hover:bg-blue-800 shadow-sm text-white font-bold py-2 px-4 rounded' %>
 </div>

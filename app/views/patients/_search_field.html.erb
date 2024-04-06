@@ -1,4 +1,4 @@
-<div data-component="search-field" class="pb-4 bg-white mt-4 grid relative">
+<div data-component="search-field">
   <label for="table-search" class="sr-only">Search</label>
   <div class="relative mt-1">
     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -14,11 +14,11 @@
     <input
       data-search="search-input"
       type="text"
-      class="rounded block p-2 pl-10 w-3/12 text-sm text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+      class="rounded block p-2 pl-10 w-full text-sm text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
       placeholder="Buscar paciente"
     >
   </div>
-  <div data-target="search-container" class="hidden shadow w-3/12 rounded absolute bg-white top-9">
+  <div data-target="search-container" class="hidden shadow w-3/12 rounded absolute bg-white top-10">
     <ul id="patients-list">
     </ul>
   </div>
