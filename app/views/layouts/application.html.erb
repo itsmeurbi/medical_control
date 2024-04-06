@@ -13,9 +13,9 @@
 
   <body>
     <% if flash[:notice] %>
-      <%= render 'flash_messages', message: flash[:notice], svg: 'check-solid.svg' %>
+      <%= render 'shared/flash_messages', message: flash[:notice], svg: 'check-solid.svg' %>
     <% elsif flash[:alert] %>
-      <%= render 'flash_messages', message: flash[:alert], svg: 'times-solid.svg' %>
+      <%= render 'shared/flash_messages', message: flash[:alert], svg: 'times-solid.svg' %>
     <% end %>
     <%= yield %>
   </body>

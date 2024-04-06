@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ConsultationsController < ApplicationController
+class ConsultationsController < AuthController
   include Pagy::Backend
 
   def create
