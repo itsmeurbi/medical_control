@@ -92,7 +92,7 @@
         </div>
         <div class = "w-full" >
           <%= f.label :fiscal_situation, 'S. Fiscal/Fact:' %>
-          <%= f.text_area :fiscal_situation, placeholder: 'Moral/Física',
+          <%= f.text_area :fiscal_situation,
                                             class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
         </div>
       </div>
@@ -108,7 +108,7 @@
       <div class="w-full grid grid-cols-8 gap-2" >
         <div class="w-full col-span-5">
           <%= f.label :address, 'Domicilio:' %>
-          <%= f.text_area :address, placeholder: 'Av. La Paz #111', class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+          <%= f.text_area :address, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
         </div>
         <div class = "w-full col-span-3">
           <%= f.label :city, 'Ciudad:' %>
@@ -169,6 +169,6 @@
   </div>
   <div class="mt-4 flex">
     <%= f.submit submit, class: 'bg-blue-600 hover:bg-blue-800 shadow-sm text-white font-bold py-2 px-4 rounded block mr-2 cursor-pointer' %>
-    <%= link_to 'Regresar', root_path, class: 'bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded' %>
+    <%= link_to 'Regresar', root_path, class: 'bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded border' %>
   </div>
 <% end %>
