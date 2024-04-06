@@ -2,3 +2,10 @@ es:
   date: &date
     month_names:
       [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+  activerecord:
+    errors:
+      models:
+        patient:
+          attributes:
+            cellphone_number:
+              wrong_length: Formato incorrecto
