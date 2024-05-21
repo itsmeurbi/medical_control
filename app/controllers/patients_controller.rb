@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'zip'
+
 class PatientsController < AuthController
   include Pagy::Backend
 
@@ -22,9 +24,11 @@ class PatientsController < AuthController
 
   def index
     @patients = Patient.all
+    @consults = Consultation.all
     respond_to do |format|
       format.html
       format.json { render json: Patient.whose_fullname_contains(params[:text]) }
+      format.zip { send_zip }
     end
   end
 
@@ -67,6 +71,18 @@ class PatientsController < AuthController
   end
 
   private
+
+  def send_zip
+    patients_csv = @patients.to_csv
+    consultations_csv = @consults.to_csv
+    zip_data = Zip::OutputStream.write_buffer do |zip|
+      zip.put_next_entry("patients_#{Time.zone.today}.csv")
+      zip.write(patients_csv)
+      zip.put_next_entry("consults_#{Time.zone.today}.csv")
+      zip.write(consultations_csv)
+    end
+    send_data zip_data.string, filename: "patients_and_consults_#{Time.zone.today}.zip", type: 'application/zip'
+  end
 
   # rubocop:disable Metrics/MethodLength
   def permitted_params
