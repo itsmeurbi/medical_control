@@ -3,8 +3,6 @@
 class Patient < ApplicationRecord
   include PgSearch::Model
 
-  encrypts :name, :phone_number, :address, :city
-
   pg_search_scope :whose_fullname_contains,
                   against: :name,
                   using: {
