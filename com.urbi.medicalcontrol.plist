@@ -2,13 +2,31 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>Label</key>
-    <string>com.urbi.medicalcontrol</string>
-    <key>ProgramArguments</key>
-    <array>
-        <string>~/medical_control/run.sh</string>
-    </array>
-    <key>RunAtLoad</key>
-    <true/>
-</dict>
+      <key>KeepAlive</key>
+      <dict>
+        <key>Crashed</key>
+        <true/>
+      </dict>
+      <key>Label</key>
+      <string>com.urbi.medical_control</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>sh</string>
+        <string>-c</string>
+        <string>USE_SCRIPT_LOCATION</string>
+      </array>
+        <key>EnvironmentVariables</key>
+      <dict>
+        <key>PATH</key>
+        <string>DEFINE_PATH_HERE</string>
+      </dict>
+      <key>RunAtLoad</key>
+      <true/>
+      <key>StandardErrorPath</key>
+      <string>USE_LOGS_LOCATION_HERE</string>
+      <key>StandardOutPath</key>
+      <string>USE_LOGS_LOCATION_HERE</string>
+      <key>WorkingDirectory</key>
+      <string>USE_LOGS_LOCATION_HERE</string>
+  </dict>
 </plist>

@@ -54,6 +54,8 @@ def sanitize_dob(date_string)
   day = match[2]
   year = match[3] > '24' ? "19#{match[3]}" : "20#{match[3]}"
   Time.strptime("#{month}/#{day}/#{year}", '%m/%d/%Y').to_date
+rescue StandardError => _e
+  nil
 end
 
 Consultation.delete_all

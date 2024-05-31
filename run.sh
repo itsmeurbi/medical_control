@@ -1,1 +1,3 @@
-bin/rails s -p 3000
+#!/bin/bash
+
+bundle exec rails s -p 3000
