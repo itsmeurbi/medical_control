@@ -77,4 +77,5 @@ group :test do
 end
 
 gem "devise", "~> 4.9", ">= 4.9.3"
+gem "smarter_csv"
 gem "tailwindcss-rails", "~> 2.0"
