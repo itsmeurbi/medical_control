@@ -1,18 +1,30 @@
-<div id="treatment-form" data-component-type="form" class="grid grid-cols-3 block shadow rounded bg-white p-4 gap-x-6 hidden">
-  <%= f.fields_for :treatments, @patient.treatments.build do |ff| %>
-    <div class = "w-full block">
-      <div>
-        <%= ff.label :date, 'F. del tratamiento:' %>
-      </div>
-      <%= ff.date_field :date, class: 'w-half rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-    </div>
-    <div class = "w-full">
-      <%= ff.label :procedure, 'Procedimiento:' %>
-      <%= ff.text_area :procedure, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-    </div>
-    <div class = "w-full">
-      <%= ff.label :meds, 'Medicamentos:' %>
-      <%= ff.text_area :meds, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+<div id="treatment-form" data-component-type="form" class="grid grid-cols-2 block shadow rounded bg-white p-4 hidden">
+  <% if @patient.persisted? %>
+    <div class="flex flex-col justify-between border-solid border-r border-gray-400 pr-4">
+      <%= turbo_frame_tag "treatments_list", src: patient_consultations_path(@patient, format: :turbo_stream, page: params[:page]), loading: "lazy" %>
+      <%= turbo_frame_tag "treatments_pagination" %>
     </div>
   <% end %>
+  <div class= "border-solid border-l border-gray-400 pl-4">
+    <h2 class="text-lg">
+      Nuevo Tratamiento
+    </h2>
+    <%= f.fields_for :treatments, @patient.treatments.build do |ff| %>
+      <div class = "w-full block mt-2">
+        <div>
+          <%= ff.label :date, 'F. del tratamiento:' %>
+        </div>
+        <%= ff.date_field :date, value: Date.today, class: 'w-half rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+      </div>
+      <div class = "w-full mt-2">
+        <%= ff.label :procedure, 'Procedimiento:' %>
+        <%= ff.text_area :procedure, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+      </div>
+      <div class = "w-full">
+        <%= ff.label :meds, 'Medicamentos:' %>
+        <%= ff.text_area :meds, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+      </div>
+    <% end %>
+  </div>
 </div>
+

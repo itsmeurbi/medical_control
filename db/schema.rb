@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_15_023140) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_29_024955) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +27,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_15_023140) do
   create_table "patients", force: :cascade do |t|
     t.string "name", null: false
     t.date "birth_date"
-    t.integer "age", null: false
     t.string "city"
     t.string "address"
     t.string "phone_number"
@@ -47,7 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_15_023140) do
     t.string "pain_localization"
     t.string "pain_evolution"
     t.string "pain_duration"
-    t.string "pain_last_time"
     t.string "pain_initial_state"
     t.string "pain_current_state"
     t.string "alergies"
@@ -87,6 +85,21 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_15_023140) do
     t.boolean "us", default: false, null: false
     t.boolean "do", default: false, null: false
     t.boolean "emg", default: false, null: false
+    t.string "spo2"
+    t.string "increases_with"
+    t.string "decreases_with"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "consultations", "patients"

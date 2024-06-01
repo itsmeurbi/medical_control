@@ -10,6 +10,8 @@ module MedicalControlRails
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.i18n.default_locale = :es
+    config.active_record.encryption.encrypt_fixtures = true
 
     # Configuration for the application, engines, and railties goes here.
     #

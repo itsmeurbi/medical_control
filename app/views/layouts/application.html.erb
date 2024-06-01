@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MedicalControlRails</title>
+    <title>Contról Médico - Amilcar</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,9 +13,9 @@
 
   <body>
     <% if flash[:notice] %>
-      <%= render 'flash_messages', message: flash[:notice], svg: 'check-solid.svg' %>
+      <%= render 'shared/flash_messages', message: flash[:notice], svg: 'check-solid.svg' %>
     <% elsif flash[:alert] %>
-      <%= render 'flash_messages', message: flash[:alert], svg: 'times-solid.svg' %>
+      <%= render 'shared/flash_messages', message: flash[:alert], svg: 'times-solid.svg' %>
     <% end %>
     <%= yield %>
   </body>

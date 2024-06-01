@@ -54,6 +54,10 @@ Rails.application.configure do
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
+  config.i18n.default_locale = :en
+  config.active_record.encryption.primary_key = 'test'
+  config.active_record.encryption.deterministic_key = 'test'
+  config.active_record.encryption.key_derivation_salt = 'test'
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
