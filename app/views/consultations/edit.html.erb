@@ -1,0 +1,24 @@
+<div class="grid justify-items-center p-4 shadow rounded bg-blue-50 m-4">
+  <%= form_with model: [:patient, @consultation], class: 'flex flex-col w-full' do |f| %>
+      <div class="bg-white shadow p-4 rounded">
+        <div class="grid grid-cols-3 gap-x-6">
+          <div>
+            <%= f.label :date, 'F. del tratamiento:' %>
+            <%= f.date_field :date, class: 'w-full rounded p' %>
+          </div>
+          <div>
+            <%= f.label :procedure, 'Procedimiento' %>
+            <%= f.text_field :procedure, class: 'w-full rounded p' %>
+          </div>
+          <div>
+            <%= f.label :meds, 'Medicamentos:' %>
+            <%= f.text_field :meds, class: 'w-full rounded p' %>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-end mt-4">
+        <%= f.submit 'Actualizar Tratamiento', class: 'bg-blue-600 hover:bg-blue-800 shadow-sm text-white font-bold py-2 px-4 rounded block mr-2 cursor-pointer' %>
+        <%= link_to 'Regresar', edit_patient_path(@consultation.patient_id), class: 'bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded border' %>
+      </div>
+  <% end %>
+</div>
