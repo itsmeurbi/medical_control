@@ -36,11 +36,11 @@
           <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm.53 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v5.69a.75.75 0 0 0 1.5 0v-5.69l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z" clip-rule="evenodd" />
         </svg>
       <% end %>
-      <%= f.text_field :increases_with, placeholder: "Aumenta con", class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
+      <%= f.text_field :increases_with, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
     </div>
     <div class = "w-full flex flex-col pt-2">
       <%= f.label :previous_tx, 'TX. Previo:' %>
-      <%= f.text_area :previous_tx, placeholder: "Con qué aumenta", class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+      <%= f.text_area :previous_tx, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
     </div>
   </div>
   <div class="grid grid-cols-4 block gap-x-6">
