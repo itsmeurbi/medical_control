@@ -2,6 +2,7 @@
 
 class ConsultationsController < AuthController
   include Pagy::Backend
+  before_action :find_consultation, only: %i[edit update]
 
   def create
     @patient = Patient.find(params[:patient_id])
@@ -23,7 +24,23 @@ class ConsultationsController < AuthController
     end
   end
 
+  def edit; end
+
+  def update
+    if @consultation.update(consultation_params)
+      flash[:notice] = 'Tratamiento actualizado correctamente'
+      redirect_to edit_patient_path(@consultation.patient_id)
+    else
+      flash.now[:alert] = 'Error al acutalizar el tratamiento'
+      render :edit
+    end
+  end
+
   private
+
+  def find_consultation
+    @consultation = Consultation.find(params[:id])
+  end
 
   def consultation_params
     params.require(:consultation).permit(:date, :meds, :procedure)

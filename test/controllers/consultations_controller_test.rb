@@ -23,4 +23,13 @@ class ConsultationsControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     assert_equal 'Tratamiento agregado', flash[:notice]
   end
+
+  test 'it updates a consultation data' do
+    patch patient_consultation_path(patients(:first_patient), consultations(:one)),
+          params: { consultation: { date: Time.zone.today,
+                                    meds: 'Lorem impsum' } }
+
+    assert_response :redirect
+    assert_equal 'Tratamiento actualizado correctamente', flash[:notice]
+  end
 end
