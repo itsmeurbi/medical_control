@@ -3,13 +3,16 @@
     Historial de tratamientos
   </h2>
   <% @treatments.each do |treatment| %>
-    <div class = "w-full block">
+    <div class="relative">
       <h4 class="text-md">F. del tratamiento:</h4>
       <p class="ml-2"><%= l(treatment.date, format: '%d de %B del %Y') %></p>
       <h4 class="text-md mt-2">Procedimiento:</h4>
       <p class="ml-2"><%= treatment.procedure %></p>
       <h4 class="text-md mt-2">Medicamentos:</h4>
       <p class="ml-2"><%= treatment.meds %></p>
+      <%= link_to edit_patient_consultation_path(id: treatment.id), data: { turbo_stream: true }, class: "text-blue-800 hover:text-blue-900 absolute top-0 right-0", title: "Editar" do %>
+        <%= show_svg("edit.svg") %>
+      <% end %>
     </div>
   <% end %>
 <% end %>
