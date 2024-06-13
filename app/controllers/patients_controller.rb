@@ -27,7 +27,7 @@ class PatientsController < AuthController
     @consults = Consultation.all
     respond_to do |format|
       format.html
-      format.json { render json: Patient.whose_fullname_contains(params[:text]) }
+      format.json { render json: Patient.whose_fullname_contains(params[:text]).limit(10) }
       format.zip { send_zip }
     end
   end
