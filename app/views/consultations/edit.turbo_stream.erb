@@ -16,27 +16,29 @@
             <span class="sr-only">Close modal</span>
           </button>
         </div>
-        <div class="grid justify-items-center p-4 shadow rounded bg-blue-50 m-4">
-          <%= form_with model: [:patient, @consultation], class: 'flex flex-col w-full' do |f| %>
-            <div class = "w-full block">
-              <div>
-                <%= f.label :date, 'F. del tratamiento:' %>
+        <div class="p-4">
+          <div class="grid justify-items-center p-4 shadow rounded bg-blue-50">
+            <%= form_with model: [:patient, @consultation], class: 'flex flex-col w-full' do |f| %>
+              <div class = "w-full block">
+                <div>
+                  <%= f.label :date, 'F. del tratamiento:' %>
+                </div>
+                <%= f.date_field :date, class: 'w-half rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
               </div>
-              <%= f.date_field :date, class: 'w-half rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-            </div>
-            <div class = "w-full">
-              <%= f.label :procedure, 'Procedimiento:' %>
-              <%= f.text_area :procedure, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-            </div>
-            <div class = "w-full">
-              <%= f.label :meds, 'Medicamentos:' %>
-              <%= f.text_area :meds, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' %>
-            </div>
-            <div class="flex justify-end mt-4">
-              <%= f.submit 'Actualizar Tratamiento', class: 'bg-blue-600 hover:bg-blue-800 shadow-sm text-white font-bold py-2 px-4 rounded block mr-2 cursor-pointer' %>
-              <%= button_tag 'Cancelar', class: 'bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded border', 'data-action': 'modal#closeModal', type: "button" %>
-            </div>
-          <% end %>
+              <div class = "w-full">
+                <%= f.label :procedure, 'Procedimiento:' %>
+                <%= f.text_area :procedure, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 4 %>
+              </div>
+              <div class = "w-full">
+                <%= f.label :meds, 'Medicamentos:' %>
+                <%= f.text_area :meds, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 4 %>
+              </div>
+              <div class="flex justify-end mt-4">
+                <%= f.submit 'Actualizar Tratamiento', class: 'bg-blue-600 hover:bg-blue-800 shadow-sm text-white font-bold py-2 px-4 rounded block mr-2 cursor-pointer' %>
+                <%= button_tag 'Cancelar', class: 'bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded border', 'data-action': 'modal#closeModal', type: "button" %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
