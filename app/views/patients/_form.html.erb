@@ -32,22 +32,22 @@
         </div>
         <div class="flex flex-col justify-end">
           <%= f.label :gender, 'Sexo:' %>
-          <%= f.select :gender, options_for_select(gender_select_options, selected: @patient.gender), {}, {class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'} %>
+          <%= f.select :gender, options_for_select(gender_select_options, selected: @patient.gender), { include_blank: true }, {class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'} %>
         </div>
         <div class="flex flex-col justify-end">
           <%= f.label :marital_status, 'E. Civil:' %>
-          <%= f.select :marital_status, options_for_select(marital_status_select_options, selected: @patient.marital_status), {}, {class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'} %>
+          <%= f.select :marital_status, options_for_select(marital_status_select_options, selected: @patient.marital_status), { include_blank: true }, {class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'} %>
         </div>
       </div>
     </div>
     <div class="grid">
       <div class="w-full flex flex-col">
         <%= f.label :alergies, 'ALERGIAS:', class: 'font-bold text-red-600' %>
-        <%= f.text_area :alergies, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+        <%= f.text_area :alergies, class: 'w-full rounded p-2 text-red-600 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
       </div>
       <div class="w-full flex flex-col ">
           <%= f.label :anticoagulants, 'ANTICOAGULANTES:', class: 'font-bold text-red-600' %>
-          <%= f.text_area :anticoagulants, class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
+          <%= f.text_area :anticoagulants, class: 'w-full rounded p-2 text-red-600 border border-gray-300 focus:ring-blue-500 focus:border-blue-500', rows: 1 %>
       </div>
       <div class="grid grid-cols-3 gap-2 w-full">
         <div class="w-full flex flex-col justify-end">

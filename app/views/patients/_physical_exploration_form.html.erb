@@ -3,13 +3,13 @@
     <div class = "w-full">
       <%= f.label :blood_type, 'Gpo:' %>
       <%= f.select :blood_type, options_for_select([''] + blood_type_select_options, selected: @patient.blood_type),
-                                {},
+                                { include_blank: true },
                                 { class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' } %>
     </div>
     <div>
       <%= f.label :rh_factor, 'Rh:' %>
-      <%= f.select :rh_factor, options_for_select([''] + rh_factor_select_options, selected: @patient.rh_factor),
-                                {},
+      <%= f.select :rh_factor, options_for_select(rh_factor_select_options, selected: @patient.rh_factor),
+                                { include_blank: true },
                                 { class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'} %>
     </div>
   </div>

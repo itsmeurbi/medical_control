@@ -15,11 +15,11 @@
     <div class="grid grid-cols-2 content-between w-full">
       <div>
         <%= f.label :evaluation, 'EVA:' %>
-        <%= f.select :evaluation, options_for_select([''] + (1..10).to_a, selected: @patient.evaluation ), {}, { class: 'w-11/12 rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' } %>
+        <%= f.select :evaluation, options_for_select((1..10).to_a, selected: @patient.evaluation ), { include_blank: true }, { class: 'w-11/12 rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500' } %>
       </div>
       <div>
         <%= f.label :evera, 'EVERA:' %>
-        <%= f.select :evera, options_for_select([''] + evera_select_options, selected: @patient.evera), {}, { class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'} %>
+        <%= f.select :evera, options_for_select(evera_select_options, selected: @patient.evera), { include_blank: true }, { class: 'w-full rounded p-2 text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500'} %>
       </div>
     </div>
     <div class = "w-full flex flex-col pt-2">
