@@ -13,7 +13,7 @@
         <p class="ml-2"><%= treatment.meds %></p>
       </div>
       <div class="flex justify-end">
-        <%= link_to edit_patient_consultation_path(id: treatment.id), data: { turbo: false }, class: "hover:text-blue-900", title: "Editar" do %>
+        <%= link_to edit_patient_consultation_path(id: treatment.id), data: { turbo_stream: true }, class: "hover:text-blue-900", title: "Editar" do %>
           <%= show_svg("edit.svg") %>
         <% end %>
       </div>
