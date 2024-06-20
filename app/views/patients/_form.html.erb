@@ -167,8 +167,11 @@
     <%= render 'lab_form', f: f %>
     <%= render 'treatment_form', f: f %>
   </div>
-  <div class="mt-4 flex">
-    <%= f.submit submit, class: 'bg-blue-600 hover:bg-blue-800 shadow-sm text-white font-bold py-2 px-4 rounded block mr-2 cursor-pointer' %>
-    <%= link_to 'Regresar', root_path, class: 'bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded border' %>
+  <div class="mt-4 flex justify-between items-center">
+    <div class="flex">
+      <%= f.submit submit, class: 'bg-blue-600 hover:bg-blue-800 shadow-sm text-white font-bold py-2 px-4 rounded block mr-2 cursor-pointer' %>
+      <%= link_to 'Regresar', root_path, class: 'bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded border' %>
+    </div>
+    <%= link_to 'Eliminar', @patient, class: 'text-red-600 text-sm p-1 hover:bg-gray-200 rounded border', data: { 'turbo-confirm': "¿Estas seguro que deseas eliminar de forma permanente a #{@patient.name}?", 'turbo-method': :delete }  %>
   </div>
 <% end %>

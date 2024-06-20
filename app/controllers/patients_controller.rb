@@ -35,10 +35,10 @@ class PatientsController < AuthController
   def create
     @patient = Patient.new(permitted_params)
     if @patient.save
-      flash[:notice] = 'Patient created successfully'
+      flash[:notice] = 'Paciente creado correctamente'
       redirect_to patients_path
     else
-      flash.now[:alert] = 'Error while creating patient'
+      flash.now[:alert] = 'Error creando al paciente'
       render :new
     end
   end
@@ -53,19 +53,20 @@ class PatientsController < AuthController
 
   def update
     if @patient.update(permitted_params)
-      flash[:notice] = 'Patient updated successfully'
+      flash[:notice] = 'Paciente actualizado correctamente'
       redirect_to patients_path
     else
-      flash.now[:alert] = 'Error while updating patient'
+      flash.now[:alert] = 'Error actualizando al paciente'
       render :edit
     end
   end
 
   def destroy
     if @patient.destroy
-      flash[:notice] = 'Patient deleted successfully'
+      flash[:notice] = 'Paciente eliminado permanentemente'
     else
-      flash[:alert] = 'Error while deleting patient'
+      binding.debugger
+      flash[:alert] = 'Error eliminando al paciente'
     end
     redirect_to patients_path
   end
