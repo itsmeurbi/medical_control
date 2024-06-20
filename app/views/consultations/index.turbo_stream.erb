@@ -13,6 +13,7 @@
       <%= link_to edit_patient_consultation_path(id: treatment.id), data: { turbo_stream: true }, class: "text-blue-800 hover:text-blue-900 absolute top-0 right-0", title: "Editar" do %>
         <%= show_svg("edit.svg") %>
       <% end %>
+      <%= link_to 'Eliminar', patient_consultation_path(id: treatment.id), method: :delete, class: 'text-red-600 text-sm mt-2 block p-1', data: { 'turbo-confirm': "¿Estas seguro que deseas eliminar de forma permanente este tratamiento?", 'turbo-method': :delete }  %>
     </div>
   <% end %>
 <% end %>
