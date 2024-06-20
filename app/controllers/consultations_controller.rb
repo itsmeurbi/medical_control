@@ -2,7 +2,7 @@
 
 class ConsultationsController < AuthController
   include Pagy::Backend
-  before_action :find_consultation, only: %i[edit update]
+  before_action :find_consultation, only: %i[edit update destroy]
 
   def create
     @patient = Patient.find(params[:patient_id])
@@ -34,6 +34,11 @@ class ConsultationsController < AuthController
       flash.now[:alert] = 'Error al acutalizar el tratamiento'
       render :edit
     end
+  end
+
+  def destroy
+    @consultation.destroy
+    redirect_to patient_consultations_path(@consultation.patient)
   end
 
   private
