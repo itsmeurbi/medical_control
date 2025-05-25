@@ -54,7 +54,7 @@ class PatientsController < AuthController
   def update
     if @patient.update(permitted_params)
       flash[:notice] = 'Paciente actualizado correctamente'
-      redirect_to patients_path
+      redirect_to edit_patient_path(@patient)
     else
       flash.now[:alert] = 'Error actualizando al paciente'
       render :edit
