@@ -20,7 +20,7 @@
               <div>
                 <%= f.label :attribute_name, "Campo a buscar", class: "block text-sm font-medium text-gray-700 mb-1" %>
                 <%= f.select :attribute_name,
-                    Patient.searchable_attributes.map { |col| [col.titleize, col] },
+                    Patient.searchable_attributes.map { |col| [t("activerecord.attributes.patient.#{col}"), col] }.sort_by { |label, _| label },
                     { include_blank: "Seleccione un campo" },
                     { required: true, class: "w-full rounded p-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" } %>
               </div>
@@ -53,11 +53,9 @@
             </div>
           <% end %>
         </div>
-        <div class="p-4">
-          <%= turbo_frame_tag "patients_list" do %>
-            <!-- Initial patients list or empty state -->
-          <% end %>
-        </div>
+        <%= turbo_frame_tag "patients_list" do %>
+          <!-- Initial patients list or empty state -->
+        <% end %>
       </div>
     </div>
   </div>

@@ -6,9 +6,15 @@ module Searchable
   included do
     # Dynamically define searchable attributes based on string columns
     def self.searchable_attributes
-      @searchable_attributes ||= columns_hash.select do |name, column|
-        column.type == :string && name != 'id'
-      end.keys.freeze
+      @searchable_attributes ||= begin
+        string_columns = columns_hash.select do |name, column|
+          column.type == :string && name != 'id'
+        end.keys
+
+        enum_columns = defined_enums.keys
+
+        (string_columns + enum_columns).freeze
+      end
     end
 
     pg_search_scope :whose_fullname_contains,
