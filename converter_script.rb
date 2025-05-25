@@ -61,7 +61,6 @@ end
 Consultation.delete_all
 Patient.delete_all
 
-# rubocop:disable Metrics/BlockLength
 SmarterCSV.process('tmp/Pacientes.csv') do |chunk|
   chunk.each do |row|
     registered_at = if row[:fecha_de_ingreso]
@@ -96,8 +95,6 @@ SmarterCSV.process('tmp/Pacientes.csv') do |chunk|
     patient.save(validate: false)
   end
 end
-# rubocop:enable Metrics/BlockLength
-
 SmarterCSV.process('tmp/Caracteristicas_del_Dolor.csv') do |chunk|
   chunk.each do |row|
     patient = Patient.find_by(id: row[:idpacientes])

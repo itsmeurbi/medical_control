@@ -6,7 +6,7 @@ require 'faker'
 # Create 1000 fake patients
 1000.times do
   gender = Patient.genders.keys.sample
-  first_name = gender == 'masculino' ? Faker::Name.first_name : Faker::Name.first_name
+  first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   name = "#{first_name} #{last_name}"
 
@@ -17,7 +17,7 @@ require 'faker'
     address: Faker::Address.street_address,
     phone_number: Faker::Number.number(digits: 10),
     cellphone_number: Faker::Number.number(digits: 10),
-    registered_at: Faker::Date.between(from: 1.year.ago, to: Date.today),
+    registered_at: Faker::Date.between(from: 1.year.ago, to: Time.zone.today),
     gender:,
     marital_status: Patient.marital_statuses.keys.sample,
     occupations: Faker::Job.title,

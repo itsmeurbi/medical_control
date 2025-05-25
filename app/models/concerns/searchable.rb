@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Searchable
   extend ActiveSupport::Concern
 
@@ -15,7 +17,7 @@ module Searchable
                       tsearch: { prefix: true }
                     }
 
-    def self.advanced_search(params)
+    def self.advanced_search(params) # rubocop:disable Metrics/MethodLength, Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       return all if params.blank? || params[:attribute_name].blank? || params[:attribute_value].blank?
 
       # Validate that the attribute is searchable
@@ -30,15 +32,15 @@ module Searchable
           # For enum columns, search in the enum values
           enum_values = defined_enums[params[:attribute_name]].keys
           matching_values = case params[:match_type]
-          when 'starts_with'
-            enum_values.select { |v| v.to_s.downcase.start_with?(value.downcase) }
-          when 'ends_with'
-            enum_values.select { |v| v.to_s.downcase.end_with?(value.downcase) }
-          when 'contains'
-            enum_values.select { |v| v.to_s.downcase.include?(value.downcase) }
-          else
-            enum_values.select { |v| v.to_s.downcase == value.downcase }
-          end
+                            when 'starts_with'
+                              enum_values.select { |v| v.to_s.downcase.start_with?(value.downcase) }
+                            when 'ends_with'
+                              enum_values.select { |v| v.to_s.downcase.end_with?(value.downcase) }
+                            when 'contains'
+                              enum_values.select { |v| v.to_s.downcase.include?(value.downcase) }
+                            else
+                              enum_values.select { |v| v.to_s.downcase == value.downcase }
+                            end
 
           if matching_values.any?
             where(params[:attribute_name] => matching_values)

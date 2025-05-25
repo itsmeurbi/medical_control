@@ -58,6 +58,7 @@ Style/SymbolArray:
 Metrics/BlockLength:
   Exclude:
     - 'db/migrate/**/*'
+  Max: 200
 
 Metrics/MethodLength:
   Exclude:

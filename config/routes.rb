@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :patients do
     resources :consultations, only: %i[create index edit update destroy]
   end
+  resources :advance_searches, only: %i[new index]
 
   root 'patients#index'
 end

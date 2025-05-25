@@ -88,8 +88,8 @@ ActiveRecord::Schema[7.0].define(version: 2025_05_25_154014) do
     t.string "spo2"
     t.string "increases_with"
     t.string "decreases_with"
-    t.string "cellphone_number_2"
-    t.string "cellphone_number_3"
+    t.string "cellphone_number_two"
+    t.string "cellphone_number_three"
   end
 
   create_table "users", force: :cascade do |t|
