@@ -24,7 +24,7 @@ module Searchable
                     }
 
     def self.advanced_search(params) # rubocop:disable Metrics/MethodLength, Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
-      return all if params.blank? || params[:attribute_name].blank? || params[:attribute_value].blank?
+      return none if params.blank? || params[:attribute_name].blank? || params[:attribute_value].blank?
 
       # Validate that the attribute is searchable
       return none unless searchable_attributes.include?(params[:attribute_name])

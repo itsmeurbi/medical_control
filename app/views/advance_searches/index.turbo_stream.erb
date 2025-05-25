@@ -6,25 +6,37 @@
           <thead class="bg-gray-50">
             <tr>
               <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Expediente</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+              <% unless ['name', 'medical_record'].include?(params[:attribute_name]) %>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <%= t("activerecord.attributes.patient.#{params[:attribute_name]}") %>
+                </th>
+              <% end %>
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
             <% @patients.each do |patient| %>
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap"><%= patient.name %></td>
-                <td class="px-6 py-4 whitespace-nowrap"><%= patient.medical_record %></td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <%= link_to "Editar", edit_patient_path(patient), class: "text-blue-600 hover:text-blue-900" %>
+              <tr class="hover:bg-blue-50 hover:shadow-md transition-all duration-200 ease-in-out">
+                <td>
+                  <%= link_to edit_patient_path(patient), class: "block px-6 py-4 whitespace-nowrap hover:text-blue-600" do %>
+                    <%= patient.name %>
+                  <% end %>
                 </td>
+                <% unless ['name', 'medical_record'].include?(params[:attribute_name]) %>
+                  <td>
+                    <%= link_to edit_patient_path(patient), class: "block px-6 py-4 whitespace-nowrap hover:text-blue-600" do %>
+                      <%= patient.send(params[:attribute_name]) %>
+                    <% end %>
+                  </td>
+                <% end %>
               </tr>
             <% end %>
           </tbody>
         </table>
       </div>
 
-      <%== pagy(@pagy) %>
+      <div class="flex justify-center py-4">
+        <%== pagy_nav(@pagy, link_extra: 'data-turbo-stream="true"') %>
+      </div>
     <% else %>
       <div class="text-center py-8">
         <p class="text-gray-500">No se encontraron pacientes que coincidan con la búsqueda.</p>

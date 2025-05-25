@@ -10,7 +10,7 @@ class AdvanceSearchesController < AuthController
   end
 
   def index
-    @pagy, @patients = pagy(Patient.advanced_search(search_params), items_per_page: 5)
+    @pagy, @patients = pagy(Patient.advanced_search(search_params), items: 5)
     respond_to do |format|
       format.turbo_stream
     end
