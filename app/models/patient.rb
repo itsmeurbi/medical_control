@@ -2,12 +2,7 @@
 
 class Patient < ApplicationRecord
   include PgSearch::Model
-
-  pg_search_scope :whose_fullname_contains,
-                  against: :name,
-                  using: {
-                    tsearch: { prefix: true }
-                  }
+  include Searchable
 
   enum gender: { masculino: 0, femenino: 1 }
   enum marital_status: { casado: 0, divorciado: 1, soltero: 2, union_libre: 3, viudo: 4 }
