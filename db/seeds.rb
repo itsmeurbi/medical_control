@@ -11,22 +11,22 @@ require 'faker'
   name = "#{first_name} #{last_name}"
 
   Patient.create!(
-    name: name,
+    name:,
     birth_date: Faker::Date.birthday(min_age: 18, max_age: 90),
     city: Faker::Address.city,
     address: Faker::Address.street_address,
     phone_number: Faker::Number.number(digits: 10),
     cellphone_number: Faker::Number.number(digits: 10),
     registered_at: Faker::Date.between(from: 1.year.ago, to: Date.today),
-    gender: gender,
+    gender:,
     marital_status: Patient.marital_statuses.keys.sample,
     occupations: Faker::Job.title,
     primary_dx: Faker::Lorem.paragraph(sentence_count: 2),
     medical_background: Faker::Lorem.paragraph(sentence_count: 3),
     surgical_background: Faker::Lorem.paragraph(sentence_count: 2),
-    pain_type: ['Agudo', 'Crónico', 'Punzante', 'Sordo'].sample,
-    pain_localization: ['Cabeza', 'Espalda', 'Rodilla', 'Hombro', 'Cuello'].sample,
-    alergies: ['Ninguna', 'Penicilina', 'Sulfas', 'Ibuprofeno'].sample,
+    pain_type: %w[Agudo Crónico Punzante Sordo].sample,
+    pain_localization: %w[Cabeza Espalda Rodilla Hombro Cuello].sample,
+    alergies: %w[Ninguna Penicilina Sulfas Ibuprofeno].sample,
     blood_type: Patient.blood_types.keys.sample,
     rh_factor: Patient.rh_factors.keys.sample,
     weight: Faker::Number.between(from: 45.0, to: 120.0).round(1),
@@ -36,9 +36,9 @@ require 'faker'
     breath_rate: Faker::Number.between(from: 12, to: 20),
     email: Faker::Internet.email,
     zip_code: Faker::Address.zip_code,
-    fiscal_situation: ['Activo', 'Inactivo'].sample,
+    fiscal_situation: %w[Activo Inactivo].sample,
     spo2: "#{Faker::Number.between(from: 95, to: 100)}%"
   )
 end
 
-puts "Created 1000 fake patients!"
+Rails.logger.debug 'Created 1000 fake patients!'
