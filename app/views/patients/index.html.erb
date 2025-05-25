@@ -2,7 +2,7 @@
   <h1 class='text-3xl font-bold mb-4 text-black flex justify-center text-blue-900'>Pacientes</h1>
   <div class = "shadow-sm rounded p-4 mb-6 bg-white">
     <div class="pb-4 bg-white mt-4 flex justify-between items-center relative">
-      <div class="flex items-center gap-2 w-3/6">
+      <div class="flex items-start flex-col gap-2 w-3/6">
         <%= render 'search_field' %>
         <%= link_to new_advance_search_path, data: { turbo_stream: true }, class: "text-blue-800 hover:text-blue-900 shrink-0", title: "Editar" do %>
           Busqueda Avanzada
