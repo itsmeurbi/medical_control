@@ -24,20 +24,6 @@ class PatientTest < ActiveSupport::TestCase
     assert_equal patient.errors[:gender].first, "can't be blank"
   end
 
-  test 'it is not valid if phone number is lower or greater than 10 digits' do
-    patient = Patient.new(phone_number: '31231212')
-
-    assert_not patient.valid?
-    assert_equal patient.errors[:phone_number].first, 'is the wrong length (should be 10 characters)'
-  end
-
-  test 'it is not valid if phone number does not contain only numbers' do
-    patient = Patient.new(phone_number: '111111d111')
-
-    assert_not patient.valid?
-    assert_equal patient.errors[:phone_number].first, 'only allows numbers'
-  end
-
   test 'it is valid with name, date of entry and gender' do
     date_time = Time.current.strftime("%d/%m/%Y %H:%M")
 

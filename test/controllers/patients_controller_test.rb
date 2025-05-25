@@ -30,7 +30,7 @@ class PatientsControllerTest < ActionDispatch::IntegrationTest
                                             gender: 'masculino' } })
 
     assert_redirected_to patients_path
-    assert_equal flash[:notice], 'Patient created successfully'
+    assert_equal flash[:notice], 'Paciente creado correctamente'
   end
 
   test 'should visit new patient path and redirect to the new template' do
@@ -53,14 +53,14 @@ class PatientsControllerTest < ActionDispatch::IntegrationTest
                                                       registered_at:,
                                                       gender: 'masculino' } })
 
-    assert_redirected_to patients_path
-    assert_equal flash[:notice], 'Patient updated successfully'
+    assert_redirected_to edit_patient_path(@patient)
+    assert_equal flash[:notice], 'Paciente actualizado correctamente'
   end
 
   test 'should delete a patient' do
     delete patient_path(@patient)
 
     assert_redirected_to patients_path
-    assert_equal flash[:notice], 'Patient deleted successfully'
+    assert_equal flash[:notice], 'Paciente eliminado permanentemente'
   end
 end
